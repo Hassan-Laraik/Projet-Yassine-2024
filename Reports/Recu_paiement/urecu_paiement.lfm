@@ -1,0 +1,342 @@
+object FrmRecu: TFrmRecu
+  Left = 89
+  Height = 593
+  Top = 138
+  Width = 588
+  Caption = 'FrmRecu'
+  ClientHeight = 593
+  ClientWidth = 588
+  DesignTimePPI = 81
+  LCLVersion = '3.2.0.0'
+  object RLReportRecu: TRLReport
+    Left = 20
+    Height = 529
+    Top = 8
+    Width = 529
+    Font.Color = clBlack
+    Font.Height = -14
+    Font.Name = 'Arial'
+    PageSetup.PaperSize = fpCustom
+    PageSetup.PaperWidth = 140
+    PageSetup.PaperHeight = 140
+    ShowProgress = False
+    object RLBand1: TRLBand
+      Left = 38
+      Height = 448
+      Top = 38
+      Width = 453
+      BandType = btTitle
+      object RLDraw3: TRLDraw
+        Left = 224
+        Height = 120
+        Top = 320
+        Width = 221
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = False
+        Borders.DrawRight = False
+        Borders.DrawBottom = False
+        Borders.Width = 2
+        Borders.Color = 6629277
+        Brush.Color = clNone
+        Brush.Style = bsClear
+        Color = clNone
+        ParentColor = False
+        Pen.Color = 6629277
+        Transparent = False
+      end
+      object RLDraw4: TRLDraw
+        Left = 8
+        Height = 120
+        Top = 320
+        Width = 213
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = False
+        Borders.DrawTop = False
+        Borders.DrawRight = False
+        Borders.DrawBottom = False
+        Borders.Width = 2
+        Borders.Color = 6629277
+        Brush.Color = clNone
+        Brush.Style = bsClear
+        Pen.Color = 6629277
+      end
+      object RLDraw2: TRLDraw
+        Left = 0
+        Height = 128
+        Top = 183
+        Width = 453
+        Align = faTop
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = True
+        Borders.DrawTop = True
+        Borders.DrawRight = True
+        Borders.DrawBottom = True
+        Borders.Width = 2
+        Borders.Color = 6629277
+        Borders.FixedLeft = True
+        Borders.FixedTop = True
+        Borders.FixedRight = True
+        Borders.FixedBottom = True
+        Brush.Color = clNone
+        Brush.Style = bsClear
+      end
+      object RLDraw1: TRLDraw
+        Left = 0
+        Height = 126
+        Top = 25
+        Width = 453
+        Align = faTop
+        Borders.Sides = sdCustom
+        Borders.DrawLeft = True
+        Borders.DrawTop = True
+        Borders.DrawRight = True
+        Borders.DrawBottom = True
+        Borders.Width = 2
+        Borders.Color = 6629277
+        Borders.FixedLeft = True
+        Borders.FixedTop = True
+        Borders.FixedRight = True
+        Borders.FixedBottom = True
+        Brush.Color = clNone
+        Brush.Style = bsClear
+      end
+      object RLLabel3: TRLLabel
+        Left = 47
+        Height = 16
+        Top = 208
+        Width = 82
+        Caption = 'Payé Pour : '
+      end
+      object RLLabel4: TRLLabel
+        Left = 0
+        Height = 16
+        Top = 151
+        Width = 453
+        Align = faTop
+        Alignment = taCenter
+        Caption = 'Montant Reçu En MAD'
+        Color = 6629277
+        Font.Color = clWhite
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel5: TRLLabel
+        Left = 256
+        Height = 16
+        Top = 56
+        Width = 75
+        Caption = 'Payé Le  : '
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLDBText1: TRLDBText
+        Left = 144
+        Height = 16
+        Top = 80
+        Width = 25
+        DataField = 'cin'
+        DataSource = DM.DsAdherent
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLDBText2: TRLDBText
+        Left = 240
+        Height = 16
+        Top = 200
+        Width = 34
+        DataField = 'label'
+        DataSource = DM.DsPaiement
+      end
+      object RLDBText3: TRLDBText
+        Left = 336
+        Height = 16
+        Top = 56
+        Width = 105
+        DataField = 'date_paiement'
+        DataSource = DM.DsPaiement
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLDBText4: TRLDBText
+        Left = 0
+        Height = 16
+        Top = 167
+        Width = 453
+        Align = faTop
+        Alignment = taCenter
+        Color = 6629277
+        DataField = 'montant'
+        DataSource = DM.DsPaiement
+        Font.Color = clWhite
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel6: TRLLabel
+        Left = 47
+        Height = 16
+        Top = 248
+        Width = 107
+        Caption = 'Montant Avale : '
+      end
+      object RLDBText5: TRLDBText
+        Left = 240
+        Height = 16
+        Top = 248
+        Width = 99
+        DataField = 'TotalInscription'
+        DataSource = DM.DsAdhesion
+      end
+      object RLLabel7: TRLLabel
+        Left = 16
+        Height = 16
+        Top = 56
+        Width = 107
+        Caption = 'Code Paiement'
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLDBText6: TRLDBText
+        Left = 144
+        Height = 16
+        Top = 56
+        Width = 44
+        DataField = 'Nrecu'
+        DataSource = DM.DsPaiement
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLLabel9: TRLLabel
+        Left = 16
+        Height = 16
+        Top = 113
+        Width = 96
+        Caption = 'Nom Complet'
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLDBText7: TRLDBText
+        Left = 144
+        Height = 16
+        Top = 115
+        Width = 34
+        DataField = 'nom'
+        DataSource = DM.DsAdherent
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLDBText8: TRLDBText
+        Left = 256
+        Height = 16
+        Top = 112
+        Width = 56
+        DataField = 'prenom'
+        DataSource = DM.DsAdherent
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLLabel8: TRLLabel
+        Left = 16
+        Height = 16
+        Top = 80
+        Width = 107
+        Caption = 'Code Adherent'
+        Font.Color = clBlack
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object RLLabel1: TRLLabel
+        Left = 168
+        Height = 25
+        Top = -56
+        Width = 134
+        Alignment = taCenter
+        Borders.Sides = sdAll
+        Caption = 'Reçu D''Argent'
+        Color = 6629277
+        Font.Color = clWhite
+        Font.Height = -18
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+      end
+      object RLLabel2: TRLLabel
+        Left = 0
+        Height = 25
+        Top = 0
+        Width = 453
+        Align = faTop
+        Alignment = taCenter
+        Borders.Sides = sdAll
+        Caption = 'Reçu D''Argent'
+        Color = 6629277
+        Font.Color = clWhite
+        Font.Height = -18
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
+      end
+      object RLSystemInfo1: TRLSystemInfo
+        Left = 62
+        Height = 16
+        Top = 384
+        Width = 67
+        Info = itFullDate
+      end
+      object RLLabel11: TRLLabel
+        Left = 56
+        Height = 16
+        Top = 344
+        Width = 88
+        Caption = 'Imprimé Le : '
+      end
+      object RLLabel10: TRLLabel
+        Left = 304
+        Height = 16
+        Top = 336
+        Width = 65
+        Caption = 'Signature'
+      end
+    end
+  end
+end

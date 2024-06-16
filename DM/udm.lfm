@@ -1,0 +1,407 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 382
+  HorizontalOffset = 202
+  VerticalOffset = 222
+  Width = 773
+  PPI = 81
+  object ZNX: TZConnection
+    ControlsCodePage = cCP_UTF8
+    Properties.Strings = (
+      'RawStringEncoding=DB_CP'
+    )
+    Connected = True
+    DisableSavepoints = False
+    HostName = 'localhost'
+    Port = 0
+    Database = 'salle_sport3'
+    User = 'root'
+    Password = '12345678'
+    Protocol = 'mysql'
+    Left = 34
+    Top = 14
+  end
+  object ZtblSport: TZTable
+    Connection = ZNX
+    Active = True
+    TableName = 'sports'
+    Left = 128
+    Top = 20
+    object ZtblSportidsport: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'idsport'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZtblSportlabel: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'label'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 45
+    end
+    object ZtblSporttarif: TZDoubleField
+      FieldKind = fkData
+      FieldName = 'tarif'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 6
+    end
+    object ZtblSportassurance: TZDoubleField
+      FieldKind = fkData
+      FieldName = 'assurance'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 8
+    end
+  end
+  object ZtblAdherent: TZTable
+    Connection = ZNX
+    Active = True
+    TableName = 'adherents'
+    Left = 223
+    Top = 20
+  end
+  object ZtblAdhesion: TZTable
+    OnCalcFields = ZtblAdhesionCalcFields
+    Connection = ZNX
+    Active = True
+    TableName = 'adhesions'
+    Left = 328
+    Top = 24
+    object ZtblAdhesioncin: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'cin'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+    object ZtblAdhesionidsport: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'idsport'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZtblAdhesiondebut: TZDateField
+      FieldKind = fkData
+      FieldName = 'debut'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZtblAdhesionfin: TZDateField
+      FieldKind = fkData
+      FieldName = 'fin'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZtblAdhesionecheance: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'echeance'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 12
+    end
+    object ZtblAdhesionprix: TZDoubleField
+      FieldKind = fkData
+      FieldName = 'prix'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnChange = ZtblAdhesionprixChange
+      OnValidate = ZtblAdhesionprixValidate
+      Precision = 6
+    end
+    object ZtblAdhesionmontant: TZDoubleField
+      FieldKind = fkData
+      FieldName = 'montant'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 12
+    end
+    object ZtblAdhesionassurance: TZDoubleField
+      FieldKind = fkData
+      FieldName = 'assurance'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 8
+    end
+    object ZtblAdhesionTotalInscription: TFloatField
+      Alignment = taCenter
+      FieldKind = fkCalculated
+      FieldName = 'TotalInscription'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZtblAdhesionTotalInscriptionGetText
+    end
+  end
+  object DsPSort: TDataSource
+    DataSet = ZtblSport
+    Left = 120
+    Top = 120
+  end
+  object DsAdherent: TDataSource
+    DataSet = ZtblAdherent
+    Left = 208
+    Top = 120
+  end
+  object DsAdhesion: TDataSource
+    DataSet = ZtblAdhesion
+    Left = 312
+    Top = 120
+  end
+  object DsPaiement: TDataSource
+    DataSet = ZtblPaiement
+    Left = 439
+    Top = 120
+  end
+  object OpenPictureAdherent: TOpenPictureDialog
+    Filter = 'JPEG Files (*.jpeg;*.jpg;*.jpe;*.jfif)|*.jpeg;*.jpg;*.jpe;*.jfif|Bitmap Files (*.bmp)|*.bmp'
+    Left = 56
+    Top = 224
+  end
+  object Ztbl_view_adherents: TZTable
+    Connection = ZNX
+    Active = True
+    TableName = 'view_adherents_inscris'
+    Left = 240
+    Top = 216
+    object Ztbl_view_adherentscin: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'cin'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+    object Ztbl_view_adherentsnom: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'nom'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 45
+    end
+    object Ztbl_view_adherentsprenom: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'prenom'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 45
+    end
+    object Ztbl_view_adherentsadress: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'adress'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 45
+    end
+    object Ztbl_view_adherentstele: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'tele'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 45
+    end
+    object Ztbl_view_adherentssexe: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'sexe'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 45
+    end
+    object Ztbl_view_adherentsnaissance: TZDateField
+      FieldKind = fkData
+      FieldName = 'naissance'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Ztbl_view_adherentsphoto: TZBlobField
+      FieldKind = fkData
+      FieldName = 'photo'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Ztbl_view_adherentsdebut: TZDateField
+      FieldKind = fkData
+      FieldName = 'debut'
+      Index = 8
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Ztbl_view_adherentsfin: TZDateField
+      FieldKind = fkData
+      FieldName = 'fin'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object Ztbl_view_adherentslabel: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'label'
+      Index = 10
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 45
+    end
+  end
+  object DSview_adherents: TDataSource
+    DataSet = Ztbl_view_adherents
+    Left = 400
+    Top = 224
+  end
+  object ZtblPaiement: TZTable
+    Connection = ZNX
+    Active = True
+    TableName = 'paiements'
+    Left = 464
+    Top = 44
+    object ZtblPaiementNrecu: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'Nrecu'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZtblPaiementcin: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'cin'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+    object ZtblPaiementidsport: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'idsport'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZtblPaiementdate_paiement: TZDateField
+      FieldKind = fkData
+      FieldName = 'date_paiement'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object ZtblPaiementmontant: TZBCDField
+      FieldKind = fkData
+      FieldName = 'montant'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Precision = 6
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object ZtblPaiementlabel: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'label'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 45
+    end
+    object ZtblPaiementsolde: TZSmallIntField
+      FieldKind = fkData
+      FieldName = 'solde'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZtblPaiementsoldeGetText
+    end
+  end
+  object ZReadQryPaiement: TZReadOnlyQuery
+    Connection = ZNX
+    Params = <>
+    Left = 672
+    Top = 40
+  end
+  object DSReadQryPaiement: TDataSource
+    DataSet = ZReadQryPaiement
+    Left = 678
+    Top = 128
+  end
+end

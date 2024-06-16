@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <CursorPos X="30" Y="21"/>
+        <UsageCount Value="120"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmAdhesion"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Uadhesion"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="746"/>
+        <CursorPos X="6" Y="765"/>
+        <ComponentState Value="2"/>
+        <UsageCount Value="120"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Uprancipale\uprancipalepas.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Frmprancipale"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="UPrancipalepas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="45"/>
+        <CursorPos X="26" Y="53"/>
+        <UsageCount Value="120"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="DM\udm.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DM"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="uDM"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="436"/>
+        <CursorPos X="12" Y="443"/>
+        <UsageCount Value="120"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="utilitaires\upersoalertdialog.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmPersoAlertDialog"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uPersoAlertDialog"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="9"/>
+        <CursorPos X="78" Y="21"/>
+        <UsageCount Value="80"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Reports\Carte_Adherent\ucarte_adherent.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmCarteAdherent"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uCarte_Adherent"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="64"/>
+        <CursorPos X="42" Y="71"/>
+        <UsageCount Value="71"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\usr\share\fpcsrc\3.2.2\packages\fcl-db\src\base\db.pas"/>
+        <UnitName Value="DB"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="389"/>
+        <CursorPos X="37" Y="389"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\usr\share\lazarus\3.2.0\lcl\include\dbimage.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="141"/>
+        <CursorPos Y="155"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\usr\share\lazarus\3.2.0\lcl\dialogs.pp"/>
+        <UnitName Value="Dialogs"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="925"/>
+        <CursorPos X="10" Y="705"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\usr\share\lazarus\3.2.0\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1807"/>
+        <CursorPos X="23" Y="1819"/>
+        <UsageCount Value="23"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\dbc\ZDbcCache.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3787"/>
+        <CursorPos Y="3798"/>
+        <UsageCount Value="8"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\.lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZAbstractDataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="741"/>
+        <CursorPos Y="752"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\.lazarus\onlinepackagemanager\packages\DBTreeViewAndDBCntrlGrid\dbcntrlgrid.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="78"/>
+        <CursorPos X="24" Y="101"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="DM\udm.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="243"/>
+        <CursorPos X="52" Y="243"/>
+        <UsageCount Value="9"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\usr\share\lazarus\3.2.0\lcl\lresources.pp"/>
+        <UnitName Value="LResources"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="253"/>
+        <CursorPos X="30" Y="3164"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\..\..\usr\share\lazarus\3.2.0\lcl\forms.pp"/>
+        <UnitName Value="Forms"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="603"/>
+        <CursorPos X="25" Y="632"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmRecu"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uRecu_Paiement"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="6"/>
+        <CursorPos X="36" Y="12"/>
+        <UsageCount Value="26"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="28" Column="10" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="29" Column="10" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="30" Column="10" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="31" Column="10" TopLine="8"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="32" Column="10" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="33" Column="10" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="34" Column="10" TopLine="11"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="35" Column="10" TopLine="12"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="36" Column="10" TopLine="13"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="37" Column="10" TopLine="14"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="38" Column="10" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="39" Column="10" TopLine="16"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="6" Column="50"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="749" Column="4" TopLine="730"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="209" Column="46" TopLine="193"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="749" Column="3" TopLine="730"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="209" Column="59" TopLine="196"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="749" Column="8" TopLine="730"/>
+      </Position>
+      <Position>
+        <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
+        <Caret Line="12" Column="36" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="749" Column="40" TopLine="730"/>
+      </Position>
+      <Position>
+        <Filename Value="Uprancipale\uprancipalepas.pas"/>
+        <Caret Line="47" Column="3" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="321" Column="44" TopLine="313"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="759" Column="27" TopLine="750"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="761" Column="32" TopLine="746"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="760" Column="43" TopLine="746"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="746" Column="46" TopLine="740"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="743" Column="40" TopLine="740"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="758" Column="54" TopLine="740"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="762" Column="22" TopLine="746"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="760" Column="44" TopLine="746"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,56 @@
+object FrmPersoAlertDialog: TFrmPersoAlertDialog
+  Left = 397
+  Height = 173
+  Top = 297
+  Width = 365
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'FrmPersoAlertDialog'
+  ClientHeight = 173
+  ClientWidth = 365
+  Color = clWhite
+  DesignTimePPI = 81
+  Font.Color = clRed
+  Position = poDesktopCenter
+  LCLVersion = '3.2.0.0'
+  object PnlMessage: TPanel
+    Left = 0
+    Height = 42
+    Top = 0
+    Width = 365
+    Align = alTop
+    BevelOuter = bvNone
+    Color = clLime
+    Font.Color = clWhite
+    Font.Height = -14
+    Font.Name = 'Sans'
+    Font.Style = [fsBold]
+    ParentBackground = False
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+  end
+  object BtnAvorter: TButton
+    Left = 64
+    Height = 35
+    Top = 80
+    Width = 106
+    Caption = 'Retirer'
+    Font.Color = clBlack
+    ModalResult = 3
+    ParentFont = False
+    TabOrder = 1
+  end
+  object BtnContinuer: TButton
+    Left = 208
+    Height = 35
+    Top = 80
+    Width = 106
+    Caption = 'Courriger'
+    Color = clLime
+    Font.Color = clBlack
+    ModalResult = 4
+    ParentFont = False
+    TabOrder = 2
+  end
+end

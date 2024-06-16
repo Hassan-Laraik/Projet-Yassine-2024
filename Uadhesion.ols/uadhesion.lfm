@@ -1,0 +1,1577 @@
+object FrmAdhesion: TFrmAdhesion
+  Left = 148
+  Height = 521
+  Top = 193
+  Width = 1024
+  Caption = 'FrmAdhesion'
+  ClientHeight = 521
+  ClientWidth = 1024
+  DesignTimePPI = 81
+  OnCreate = FormCreate
+  OnResize = FormResize
+  LCLVersion = '3.2.0.0'
+  object Adhesion: TPanel
+    Left = 0
+    Height = 42
+    Top = 0
+    Width = 1024
+    Align = alTop
+    Caption = 'Adhesion'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -20
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    OnClick = AdhesionClick
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 42
+    Top = 479
+    Width = 1024
+    Align = alBottom
+    BevelOuter = bvNone
+    TabOrder = 1
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 437
+    Top = 42
+    Width = 1024
+    ActivePage = TabPaiement
+    Align = alClient
+    TabIndex = 4
+    TabOrder = 2
+    object TabListeAdhesion: TTabSheet
+      Caption = 'TabListeAdhesion'
+      ClientHeight = 407
+      ClientWidth = 1014
+      object PnlEditerDetailAdhesion: TPanel
+        Left = 0
+        Height = 42
+        Top = 94
+        Width = 1014
+        Align = alTop
+        BorderSpacing.Bottom = 5
+        BevelOuter = bvNone
+        Caption = 'Liste des Adhesion'
+        ClientHeight = 42
+        ClientWidth = 1014
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+        TabOrder = 0
+        object DbedtSport: TDBLookupComboBox
+          Left = 157
+          Height = 42
+          Top = 0
+          Width = 122
+          Align = alLeft
+          DataField = 'idsport'
+          DataSource = DM.DsAdhesion
+          KeyField = 'idsport'
+          ListField = 'label'
+          ListFieldIndex = 0
+          ListSource = DM.DsPSort
+          LookupCache = False
+          OnSelect = DbedtSportSelect
+          ScrollListDataset = True
+          TabOrder = 0
+        end
+        object DbedtDebut: TDBDateTimePicker
+          Left = 279
+          Height = 42
+          Top = 0
+          Width = 136
+          DataField = 'debut'
+          DataSource = DM.DsAdhesion
+          ReadOnly = False
+          CenturyFrom = 1941
+          DateDisplayOrder = ddoDMY
+          MaxDate = 2958465
+          MinDate = -53780
+          AutoSize = False
+          Font.CharSet = ANSI_CHARSET
+          Font.Name = 'Sans'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          ParentFont = False
+          TabOrder = 1
+          DateSeparator = '/'
+          TrailingSeparator = False
+          TextForNullDate = 'Date Debut'
+          LeadingZeros = True
+          Align = alLeft
+          Alignment = taCenter
+          NullInputAllowed = False
+          Kind = dtkDate
+          TimeSeparator = ':'
+          DecimalSeparator = ','
+          TimeFormat = tf24
+          TimeDisplay = tdHMS
+          DateMode = dmComboBox
+          UseDefaultSeparators = False
+          AutoButtonSize = True
+          HideDateTimeParts = []
+          MonthNames = 'Long'
+          ShowMonthNames = True
+        end
+        object DbedtFin: TDBDateTimePicker
+          Left = 552
+          Height = 42
+          Top = 0
+          Width = 136
+          DataField = 'fin'
+          DataSource = DM.DsAdhesion
+          ReadOnly = True
+          CenturyFrom = 1941
+          MaxDate = 2958465
+          MinDate = -53780
+          AutoSize = False
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = 10
+          Font.Name = 'Sans'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          ParentFont = False
+          TabOrder = 2
+          TrailingSeparator = False
+          TextForNullDate = 'Date Fin'
+          LeadingZeros = True
+          Align = alLeft
+          Alignment = taCenter
+          NullInputAllowed = False
+          Kind = dtkDate
+          TimeFormat = tf24
+          TimeDisplay = tdHMS
+          DateMode = dmComboBox
+          UseDefaultSeparators = True
+          Cascade = True
+          AutoButtonSize = True
+          HideDateTimeParts = []
+          MonthNames = 'Long'
+          ShowMonthNames = True
+          Options = [dtpoFlatButton]
+        end
+        object PnlCinAdhesion: TPanel
+          Left = 5
+          Height = 37
+          Top = 5
+          Width = 147
+          Align = alLeft
+          BorderSpacing.Left = 5
+          BorderSpacing.Top = 5
+          BorderSpacing.Right = 5
+          Caption = 'PnlCinAdhesion'
+          ClientHeight = 37
+          ClientWidth = 147
+          TabOrder = 3
+          object BtnEditerAdherent: TButton
+            Left = 112
+            Height = 35
+            Top = 1
+            Width = 34
+            Align = alRight
+            Caption = '....'
+            TabOrder = 0
+            OnClick = BtnEditerAdherentClick
+          end
+          object DBEdtCinAdhesion: TDBLookupComboBox
+            Left = 1
+            Height = 35
+            Top = 1
+            Width = 111
+            Align = alClient
+            AutoComplete = True
+            DataField = 'cin'
+            DataSource = DM.DsAdhesion
+            DropDownRows = -1
+            KeyField = 'cin'
+            ListField = 'cin;nom'
+            ListFieldIndex = 0
+            ListSource = DM.DsAdherent
+            LookupCache = False
+            ScrollListDataset = True
+            TabOrder = 1
+          end
+        end
+        object DBedtMontant: TDBEdit
+          Left = 816
+          Height = 42
+          Top = 0
+          Width = 136
+          DataField = 'montant'
+          DataSource = DM.DsAdhesion
+          Align = alLeft
+          Alignment = taRightJustify
+          Color = 3925307
+          MaxLength = 0
+          TabOrder = 4
+        end
+        object DBComboEcheance: TDBComboBox
+          Left = 415
+          Height = 42
+          Top = 0
+          Width = 137
+          Align = alLeft
+          DataField = 'echeance'
+          DataSource = DM.DsAdhesion
+          ItemHeight = 0
+          Items.Strings = (
+            '1-Mois'
+            '2-Mois'
+            '1-Trimestre'
+            '1-Semistre'
+            '3-Trimestre'
+            '1-An'
+            '4-Mois'
+            '5-Mois'
+            '7-Mois'
+            '8-Mois'
+            '10-Mois'
+            '11-Mois'
+            ''
+          )
+          MaxLength = 0
+          OnSelect = DBComboEcheanceSelect
+          TabOrder = 5
+        end
+        object DBedtPrix: TDBEdit
+          Left = 688
+          Height = 42
+          Top = 0
+          Width = 128
+          DataField = 'prix'
+          DataSource = DM.DsAdhesion
+          Align = alLeft
+          Alignment = taRightJustify
+          MaxLength = 0
+          TabOrder = 6
+        end
+        object DBedtAssurance: TDBEdit
+          Left = 952
+          Height = 42
+          Top = 0
+          Width = 62
+          DataField = 'assurance'
+          DataSource = DM.DsAdhesion
+          Align = alClient
+          Alignment = taRightJustify
+          MaxLength = 0
+          TabOrder = 7
+        end
+      end
+      object PnlEditAdhesion: TPanel
+        Left = 5
+        Height = 42
+        Top = 47
+        Width = 1004
+        Align = alTop
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 5
+        BorderSpacing.Right = 5
+        BorderSpacing.Bottom = 5
+        BevelOuter = bvNone
+        ClientHeight = 42
+        ClientWidth = 1004
+        TabOrder = 1
+        object BtnPrior: TButton
+          Left = 40
+          Height = 42
+          Top = 0
+          Width = 40
+          Align = alLeft
+          Caption = '<'
+          TabOrder = 0
+          OnClick = BtnPriorClick
+        end
+        object BtnFirst: TButton
+          Left = 0
+          Height = 42
+          Top = 0
+          Width = 40
+          Align = alLeft
+          Caption = '<<'
+          TabOrder = 1
+          OnClick = BtnFirstClick
+        end
+        object BtnNext: TButton
+          Left = 673
+          Height = 42
+          Top = 0
+          Width = 40
+          Align = alRight
+          Caption = '>'
+          TabOrder = 2
+          OnClick = BtnNextClick
+        end
+        object BtnLast: TButton
+          Left = 633
+          Height = 42
+          Top = 0
+          Width = 40
+          Align = alRight
+          Caption = '>>'
+          TabOrder = 3
+          OnClick = BtnLastClick
+        end
+        object EdtRechercheAdhesion: TEdit
+          Left = 240
+          Height = 42
+          Top = 0
+          Width = 393
+          Align = alClient
+          TabOrder = 4
+          OnChange = EdtRechercheAdhesionChange
+          OnKeyPress = EdtRechercheAdhesionKeyPress
+        end
+        object BTnNouveauAdhesion: TButton
+          Left = 160
+          Height = 42
+          Top = 0
+          Width = 80
+          Align = alLeft
+          Caption = 'Nouveau'
+          TabOrder = 5
+          OnClick = BTnNouveauAdhesionClick
+        end
+        object BtnModifierAdhesion: TButton
+          Left = 80
+          Height = 42
+          Top = 0
+          Width = 80
+          Align = alLeft
+          Caption = 'Modifer'
+          TabOrder = 6
+          OnClick = BtnModifierAdhesionClick
+        end
+        object BtnValiderAdhesion: TButton
+          Left = 713
+          Height = 42
+          Top = 0
+          Width = 80
+          Align = alRight
+          Caption = 'Valider'
+          TabOrder = 7
+          OnClick = BtnValiderAdhesionClick
+        end
+        object BtnAnnulerValidation: TButton
+          Left = 793
+          Height = 42
+          Top = 0
+          Width = 80
+          Align = alRight
+          BorderSpacing.Right = 20
+          Caption = 'Annuler'
+          TabOrder = 8
+          OnClick = BtnAnnulerValidationClick
+        end
+        object BtnPaiement: TButton
+          Left = 893
+          Height = 42
+          Top = 0
+          Width = 111
+          Align = alRight
+          Caption = 'Paiement'
+          TabOrder = 9
+          OnClick = BtnPaiementClick
+        end
+      end
+      object Panel15: TPanel
+        Left = 0
+        Height = 42
+        Top = 365
+        Width = 1014
+        Align = alBottom
+        BevelOuter = bvNone
+        ClientHeight = 42
+        ClientWidth = 1014
+        TabOrder = 2
+        object Panel1: TPanel
+          Left = 0
+          Height = 42
+          Top = 0
+          Width = 597
+          Align = alLeft
+          ClientHeight = 42
+          ClientWidth = 597
+          Color = 15537429
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 0
+          object DBedtTotal: TDBText
+            Left = 1
+            Height = 40
+            Top = 1
+            Width = 535
+            Align = alLeft
+            Alignment = taCenter
+            AutoSize = False
+            DataField = 'TotalInscription'
+            DataSource = DM.DsAdhesion
+            Font.Color = clWhite
+            Font.Height = -14
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            Layout = tlCenter
+            ParentFont = False
+          end
+        end
+      end
+      object DBGridAdhesion: TDBGrid
+        Left = 5
+        Height = 219
+        Top = 141
+        Width = 1004
+        Align = alClient
+        AutoFillColumns = True
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 5
+        BorderSpacing.Right = 5
+        BorderSpacing.Bottom = 5
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'cin'
+            Width = 125
+            FieldName = 'cin'
+          end        
+          item
+            Title.Caption = 'idsport'
+            Width = 124
+            FieldName = 'idsport'
+          end        
+          item
+            Title.Caption = 'debut'
+            Width = 124
+            FieldName = 'debut'
+          end        
+          item
+            Title.Caption = 'fin'
+            Width = 124
+            FieldName = 'fin'
+          end        
+          item
+            Title.Caption = 'echeance'
+            Width = 124
+            FieldName = 'echeance'
+          end        
+          item
+            Title.Caption = 'prix'
+            Width = 124
+            FieldName = 'prix'
+          end        
+          item
+            Title.Caption = 'montant'
+            Width = 124
+            FieldName = 'montant'
+          end        
+          item
+            Title.Caption = 'assurance'
+            Width = 124
+            FieldName = 'assurance'
+          end>
+        DataSource = DM.DsAdhesion
+        Flat = True
+        Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection]
+        ReadOnly = True
+        Scrollbars = ssNone
+        TabOrder = 3
+        OnSelectEditor = DBGridAdhesionSelectEditor
+      end
+      object Panel16: TPanel
+        Left = 0
+        Height = 42
+        Top = 0
+        Width = 1014
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'Inscription'
+        ClientHeight = 42
+        ClientWidth = 1014
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -18
+        Font.Name = 'Sans'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 4
+        object DBText1: TDBText
+          Left = 110
+          Height = 30
+          Top = 8
+          Width = 200
+          AutoSize = False
+          DataField = 'nom'
+          DataSource = DM.DsAdherent
+        end
+      end
+    end
+    object TabListeAdherents: TTabSheet
+      Caption = 'TabListeAdherents'
+      ClientHeight = 407
+      ClientWidth = 1014
+      object PnlEditerAdherent: TPanel
+        Left = 5
+        Height = 42
+        Top = 47
+        Width = 1004
+        Align = alTop
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 5
+        BorderSpacing.Right = 5
+        BorderSpacing.Bottom = 5
+        BevelOuter = bvNone
+        ClientHeight = 42
+        ClientWidth = 1004
+        TabOrder = 0
+        object BtnPriorAdherent: TButton
+          Left = 44
+          Height = 42
+          Top = 0
+          Width = 44
+          Align = alLeft
+          Caption = '<'
+          TabOrder = 0
+          OnClick = BtnPriorAdherentClick
+        end
+        object BtnFirstAdherent: TButton
+          Left = 0
+          Height = 42
+          Top = 0
+          Width = 44
+          Align = alLeft
+          Caption = '<<'
+          TabOrder = 1
+          OnClick = BtnFirstAdherentClick
+        end
+        object BtnNextAdherent: TButton
+          Left = 916
+          Height = 42
+          Top = 0
+          Width = 44
+          Align = alRight
+          Caption = '>'
+          TabOrder = 2
+          OnClick = BtnNextAdherentClick
+        end
+        object BtnLasrAdherent: TButton
+          Left = 960
+          Height = 42
+          Top = 0
+          Width = 44
+          Align = alRight
+          Caption = '>>'
+          TabOrder = 3
+          OnClick = BtnLasrAdherentClick
+        end
+        object BtnNouveauAdherent: TButton
+          Left = 188
+          Height = 42
+          Top = 0
+          Width = 100
+          Align = alLeft
+          Caption = 'Nouveau'
+          TabOrder = 4
+          OnClick = BtnNouveauAdherentClick
+        end
+        object BtnModiferAdherent: TButton
+          Left = 88
+          Height = 42
+          Top = 0
+          Width = 100
+          Align = alLeft
+          Caption = 'Modifer'
+          TabOrder = 5
+          OnClick = BtnModiferAdherentClick
+        end
+        object EdtRechercheAdherent: TEdit
+          Left = 288
+          Height = 42
+          Top = 0
+          Width = 628
+          Align = alClient
+          TabOrder = 6
+          OnKeyPress = EdtRechercheAdherentKeyPress
+        end
+      end
+      object Panel3: TPanel
+        Left = 5
+        Height = 42
+        Top = 360
+        Width = 1004
+        Align = alBottom
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 5
+        BorderSpacing.Right = 5
+        BorderSpacing.Bottom = 5
+        BevelOuter = bvNone
+        ClientHeight = 42
+        ClientWidth = 1004
+        TabOrder = 1
+        object BtnAppliquer: TButton
+          Left = 904
+          Height = 42
+          Top = 0
+          Width = 100
+          Align = alRight
+          Caption = 'Appliquer'
+          TabOrder = 0
+          OnClick = BtnAppliquerClick
+        end
+      end
+      object DBGrid2: TDBGrid
+        Left = 10
+        Height = 251
+        Top = 99
+        Width = 994
+        Align = alClient
+        AutoFillColumns = True
+        BorderSpacing.Left = 5
+        BorderSpacing.Top = 5
+        BorderSpacing.Right = 5
+        BorderSpacing.Bottom = 5
+        BorderSpacing.Around = 5
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'cin'
+            Width = 141
+            FieldName = 'cin'
+          end        
+          item
+            Title.Caption = 'nom'
+            Width = 141
+            FieldName = 'nom'
+          end        
+          item
+            Title.Caption = 'prenom'
+            Width = 141
+            FieldName = 'prenom'
+          end        
+          item
+            Title.Caption = 'adress'
+            Width = 140
+            FieldName = 'adress'
+          end        
+          item
+            Title.Caption = 'tele'
+            Width = 140
+            FieldName = 'tele'
+          end        
+          item
+            Title.Caption = 'sexe'
+            Width = 140
+            FieldName = 'sexe'
+          end        
+          item
+            Title.Caption = 'naissance'
+            Width = 140
+            FieldName = 'naissance'
+          end>
+        DataSource = DM.DsAdherent
+        Flat = True
+        Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgRowSelect, dgAlwaysShowSelection]
+        ReadOnly = True
+        Scrollbars = ssNone
+        TabOrder = 2
+      end
+      object Panel27: TPanel
+        Left = 0
+        Height = 42
+        Top = 0
+        Width = 1014
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'Liste des Adherents'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+        TabOrder = 3
+      end
+    end
+    object TabDetailAdherent: TTabSheet
+      Caption = 'TabDetailAdherent'
+      ClientHeight = 407
+      ClientWidth = 1014
+      object Panel12: TPanel
+        Left = 0
+        Height = 42
+        Top = 365
+        Width = 1014
+        Align = alBottom
+        BevelOuter = bvNone
+        ClientHeight = 42
+        ClientWidth = 1014
+        TabOrder = 0
+        object BtnValiderAdherent: TButton
+          Left = 790
+          Height = 42
+          Top = 0
+          Width = 120
+          Align = alRight
+          Caption = 'Valider'
+          TabOrder = 0
+          OnClick = BtnValiderAdherentClick
+        end
+        object BtnAnnulerAdherent: TButton
+          Left = 910
+          Height = 42
+          Top = 0
+          Width = 104
+          Align = alRight
+          Caption = 'Annuler'
+          TabOrder = 1
+          OnClick = BtnAnnulerAdherentClick
+        end
+      end
+      object Panel5: TPanel
+        Left = 0
+        Height = 323
+        Top = 42
+        Width = 1014
+        Align = alClient
+        BevelOuter = bvNone
+        Caption = 'Panel5'
+        ClientHeight = 323
+        ClientWidth = 1014
+        TabOrder = 1
+        object Panel11: TPanel
+          Left = 0
+          Height = 42
+          Top = 168
+          Width = 1014
+          Align = alTop
+          BevelOuter = bvNone
+          ClientHeight = 42
+          ClientWidth = 1014
+          TabOrder = 0
+          object Gsm: TLabel
+            Left = 0
+            Height = 42
+            Top = 0
+            Width = 175
+            Align = alLeft
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Gsm'
+            Layout = tlCenter
+          end
+          object DBEdtGsm: TDBEdit
+            Left = 175
+            Height = 42
+            Top = 0
+            Width = 313
+            DataField = 'tele'
+            DataSource = DM.DsAdherent
+            Align = alLeft
+            AutoSelect = False
+            MaxLength = 45
+            TabOrder = 0
+          end
+        end
+        object Panel10: TPanel
+          Left = 0
+          Height = 42
+          Top = 210
+          Width = 1014
+          Align = alTop
+          BevelOuter = bvNone
+          ClientHeight = 42
+          ClientWidth = 1014
+          TabOrder = 1
+          object Email: TLabel
+            Left = 0
+            Height = 42
+            Top = 0
+            Width = 175
+            Align = alLeft
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Email'
+            Layout = tlCenter
+          end
+          object DBEdtEmail: TDBEdit
+            Left = 175
+            Height = 42
+            Top = 0
+            Width = 313
+            DataField = 'sexe'
+            DataSource = DM.DsAdherent
+            Align = alLeft
+            AutoSelect = False
+            MaxLength = 45
+            TabOrder = 0
+          end
+        end
+        object Panel9: TPanel
+          Left = 0
+          Height = 42
+          Top = 252
+          Width = 1014
+          Align = alTop
+          BevelOuter = bvNone
+          ClientHeight = 42
+          ClientWidth = 1014
+          TabOrder = 2
+          object Adresse: TLabel
+            Left = 0
+            Height = 42
+            Top = 0
+            Width = 175
+            Align = alLeft
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Adresse'
+            Layout = tlCenter
+          end
+          object DBEdtAdresse: TDBEdit
+            Left = 175
+            Height = 42
+            Top = 0
+            Width = 313
+            DataField = 'adress'
+            DataSource = DM.DsAdherent
+            Align = alLeft
+            AutoSelect = False
+            MaxLength = 45
+            TabOrder = 0
+          end
+        end
+        object Panel8: TPanel
+          Left = 0
+          Height = 42
+          Top = 0
+          Width = 1014
+          Align = alTop
+          BevelOuter = bvNone
+          ClientHeight = 42
+          ClientWidth = 1014
+          TabOrder = 3
+          object Cin: TLabel
+            Left = 0
+            Height = 42
+            Top = 0
+            Width = 175
+            Align = alLeft
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Cin'
+            Layout = tlCenter
+          end
+          object DBEdtCin: TDBEdit
+            Left = 175
+            Height = 42
+            Top = 0
+            Width = 313
+            DataField = 'cin'
+            DataSource = DM.DsAdherent
+            Align = alLeft
+            AutoSelect = False
+            MaxLength = 10
+            TabOrder = 0
+          end
+        end
+        object Panel7: TPanel
+          Left = 0
+          Height = 42
+          Top = 126
+          Width = 1014
+          Align = alTop
+          BevelOuter = bvNone
+          ClientHeight = 42
+          ClientWidth = 1014
+          TabOrder = 4
+          object Date_naissance: TLabel
+            Left = 0
+            Height = 42
+            Top = 0
+            Width = 175
+            Align = alLeft
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Date_naissance'
+            Layout = tlCenter
+          end
+          object DateEdtDate_naissance: TDBDateTimePicker
+            Left = 175
+            Height = 42
+            Top = 0
+            Width = 312
+            DataField = 'naissance'
+            DataSource = DM.DsAdherent
+            ReadOnly = False
+            CenturyFrom = 1941
+            MaxDate = 2958465
+            MinDate = -53780
+            AutoSize = False
+            TabOrder = 0
+            TrailingSeparator = False
+            TextForNullDate = 'NULL'
+            LeadingZeros = True
+            Align = alLeft
+            Kind = dtkDate
+            TimeFormat = tf24
+            TimeDisplay = tdHMS
+            DateMode = dmComboBox
+            UseDefaultSeparators = True
+            AutoButtonSize = True
+            HideDateTimeParts = []
+            MonthNames = 'Long'
+            ShowMonthNames = True
+          end
+        end
+        object Panel6: TPanel
+          Left = 0
+          Height = 42
+          Top = 84
+          Width = 1014
+          Align = alTop
+          BevelOuter = bvNone
+          ClientHeight = 42
+          ClientWidth = 1014
+          TabOrder = 5
+          object Prenom: TLabel
+            Left = 0
+            Height = 42
+            Top = 0
+            Width = 175
+            Align = alLeft
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Prenom'
+            Layout = tlCenter
+          end
+          object DBEdtPrenom: TDBEdit
+            Left = 175
+            Height = 42
+            Top = 0
+            Width = 313
+            DataField = 'prenom'
+            DataSource = DM.DsAdherent
+            Align = alLeft
+            AutoSelect = False
+            MaxLength = 45
+            TabOrder = 0
+          end
+        end
+        object Panel26: TPanel
+          Left = 0
+          Height = 42
+          Top = 42
+          Width = 1014
+          Align = alTop
+          BevelOuter = bvNone
+          ClientHeight = 42
+          ClientWidth = 1014
+          TabOrder = 6
+          object Nom: TLabel
+            Left = 0
+            Height = 42
+            Top = 0
+            Width = 175
+            Align = alLeft
+            Alignment = taCenter
+            AutoSize = False
+            Caption = 'Nom'
+            Layout = tlCenter
+          end
+          object DBEdtNom: TDBEdit
+            Left = 175
+            Height = 42
+            Top = 0
+            Width = 313
+            DataField = 'nom'
+            DataSource = DM.DsAdherent
+            Align = alLeft
+            AutoSelect = False
+            MaxLength = 45
+            TabOrder = 0
+          end
+        end
+      end
+      object Panel28: TPanel
+        Left = 0
+        Height = 42
+        Top = 0
+        Width = 1014
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'details des Adherents'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+        TabOrder = 2
+      end
+    end
+    object TabSport: TTabSheet
+      Caption = 'TabSport'
+      ClientHeight = 407
+      ClientWidth = 1014
+      object Panel29: TPanel
+        Left = 0
+        Height = 42
+        Top = 0
+        Width = 1014
+        Align = alTop
+        BevelOuter = bvNone
+        Caption = 'Liste des Adherents'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -16
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+        TabOrder = 0
+      end
+      object Panel17: TPanel
+        Left = 0
+        Height = 42
+        Top = 365
+        Width = 1014
+        Align = alBottom
+        BevelOuter = bvNone
+        TabOrder = 1
+      end
+      object Panel18: TPanel
+        Left = 0
+        Height = 42
+        Top = 42
+        Width = 1014
+        Align = alTop
+        BevelOuter = bvNone
+        ClientHeight = 42
+        ClientWidth = 1014
+        TabOrder = 2
+        object BtnPriorSport: TButton
+          Left = 44
+          Height = 42
+          Top = 0
+          Width = 44
+          Align = alLeft
+          Caption = '<'
+          TabOrder = 0
+          OnClick = BtnPriorSportClick
+        end
+        object BtnFirstSport: TButton
+          Left = 0
+          Height = 42
+          Top = 0
+          Width = 44
+          Align = alLeft
+          Caption = '<<'
+          TabOrder = 1
+          OnClick = BtnFirstSportClick
+        end
+        object BtnNextSport: TButton
+          Left = 926
+          Height = 42
+          Top = 0
+          Width = 44
+          Align = alRight
+          Caption = '>'
+          TabOrder = 2
+          OnClick = BtnNextSportClick
+        end
+        object BtnLastport: TButton
+          Left = 970
+          Height = 42
+          Top = 0
+          Width = 44
+          Align = alRight
+          Caption = '>>'
+          TabOrder = 3
+          OnClick = BtnLastportClick
+        end
+        object EdtRechercheSport: TEdit
+          Left = 248
+          Height = 42
+          Top = 0
+          Width = 518
+          Align = alClient
+          TabOrder = 4
+          OnKeyPress = EdtRechercheSportKeyPress
+        end
+        object BtnNouveauSport: TButton
+          Left = 88
+          Height = 42
+          Top = 0
+          Width = 80
+          Align = alLeft
+          Caption = 'Nouveau'
+          TabOrder = 5
+          OnClick = BtnNouveauSportClick
+        end
+        object BtnModifierSport: TButton
+          Left = 168
+          Height = 42
+          Top = 0
+          Width = 80
+          Align = alLeft
+          Caption = 'Modifer'
+          TabOrder = 6
+          OnClick = BtnModifierSportClick
+        end
+        object BtnValiderSport: TButton
+          Left = 766
+          Height = 42
+          Top = 0
+          Width = 80
+          Align = alRight
+          Caption = 'Valider'
+          TabOrder = 7
+          OnClick = BtnValiderSportClick
+        end
+        object BtnAnnulerSport: TButton
+          Left = 846
+          Height = 42
+          Top = 0
+          Width = 80
+          Align = alRight
+          Caption = 'Annuler'
+          TabOrder = 8
+          OnClick = BtnAnnulerSportClick
+        end
+      end
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 281
+        Top = 84
+        Width = 1014
+        Align = alClient
+        Color = clWindow
+        Columns = <        
+          item
+            Title.Caption = 'idsport'
+            FieldName = 'idsport'
+          end        
+          item
+            Title.Caption = 'label'
+            FieldName = 'label'
+          end        
+          item
+            Title.Caption = 'tarif'
+            FieldName = 'tarif'
+          end        
+          item
+            Title.Caption = 'assurance'
+            FieldName = 'assurance'
+          end>
+        DataSource = DM.DsPSort
+        Options = [dgEditing, dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgCancelOnExit]
+        Scrollbars = ssNone
+        TabOrder = 3
+        OnEditingDone = DBGrid1EditingDone
+      end
+    end
+    object TabPaiement: TTabSheet
+      Caption = 'TabPaiement'
+      ClientHeight = 407
+      ClientWidth = 1014
+      object DBCntrlGrid1: TDBCntrlGrid
+        Left = 0
+        Height = 84
+        Top = 0
+        Width = 1014
+        Align = alTop
+        AltColorStartNormal = True
+        Color = clWindow
+        DefaultPositionAtEnd = False
+        DrawPanel = Panel4
+        Options = [dgpIndicator]
+        TabOrder = 0
+        ColWidths = (
+          14
+          998
+        )
+        object Panel4: TPanel
+          Left = 16
+          Height = 52
+          Top = 25
+          Width = 991
+          Align = alRight
+          BorderSpacing.Left = 5
+          BorderSpacing.Top = 25
+          BorderSpacing.Right = 5
+          BorderSpacing.Bottom = 5
+          BevelColor = 7368909
+          BevelInner = bvSpace
+          BevelOuter = bvNone
+          ClientHeight = 52
+          ClientWidth = 991
+          ParentBackground = False
+          TabOrder = 0
+          object DBImage: TDBImage
+            Left = 1
+            Height = 167
+            Top = 1
+            Width = 989
+            Align = alTop
+            DataField = 'photo'
+            DataSource = DM.DsAdherent
+            Stretch = True
+            WriteHeader = False
+          end
+          object Panel13: TPanel
+            Left = 1
+            Height = 42
+            Top = 51
+            Width = 989
+            Align = alTop
+            BevelOuter = bvNone
+            ClientHeight = 42
+            ClientWidth = 989
+            ParentBackground = False
+            TabOrder = 0
+            object Cin1: TLabel
+              Left = 0
+              Height = 42
+              Top = 0
+              Width = 95
+              Align = alLeft
+              Alignment = taCenter
+              AutoSize = False
+              Caption = 'Cin'
+              Layout = tlCenter
+              OnClick = Cin1Click
+            end
+            object DBEdtCin1: TDBText
+              Left = 95
+              Height = 42
+              Top = 0
+              Width = 894
+              Align = alClient
+              Alignment = taCenter
+              Color = clWhite
+              DataField = 'cin'
+              DataSource = DM.DsAdherent
+              Layout = tlCenter
+              ParentColor = False
+              Transparent = False
+            end
+          end
+          object Panel30: TPanel
+            Left = 1
+            Height = 42
+            Top = 51
+            Width = 989
+            Align = alTop
+            BevelOuter = bvNone
+            ClientHeight = 42
+            ClientWidth = 989
+            ParentBackground = False
+            TabOrder = 1
+            object Nom1: TLabel
+              Left = 0
+              Height = 42
+              Top = 0
+              Width = 95
+              Align = alLeft
+              Alignment = taCenter
+              AutoSize = False
+              Caption = 'Nom'
+              Layout = tlCenter
+            end
+            object DBEdtNom1: TDBText
+              Left = 95
+              Height = 42
+              Top = 0
+              Width = 894
+              Align = alClient
+              Alignment = taCenter
+              Color = clWhite
+              DataField = 'nom'
+              DataSource = DM.DsAdherent
+              Layout = tlCenter
+              ParentColor = False
+              Transparent = False
+            end
+          end
+          object Panel19: TPanel
+            Left = 1
+            Height = 42
+            Top = 51
+            Width = 989
+            Align = alTop
+            BevelOuter = bvNone
+            ClientHeight = 42
+            ClientWidth = 989
+            ParentBackground = False
+            TabOrder = 2
+            object Prenom1: TLabel
+              Left = 0
+              Height = 42
+              Top = 0
+              Width = 95
+              Align = alLeft
+              Alignment = taCenter
+              AutoSize = False
+              Caption = 'Prenom'
+              Layout = tlCenter
+            end
+            object DBEdtPrenom1: TDBText
+              Left = 95
+              Height = 42
+              Top = 0
+              Width = 894
+              Align = alClient
+              Alignment = taCenter
+              Color = clWhite
+              DataField = 'prenom'
+              DataSource = DM.DsAdherent
+              Layout = tlCenter
+              ParentColor = False
+              Transparent = False
+            end
+          end
+          object Panel20: TPanel
+            Left = 1
+            Height = 42
+            Top = 51
+            Width = 989
+            Align = alTop
+            BevelOuter = bvNone
+            ClientHeight = 42
+            ClientWidth = 989
+            ParentBackground = False
+            TabOrder = 3
+            object Date_naissance1: TLabel
+              Left = 0
+              Height = 42
+              Top = 0
+              Width = 95
+              Align = alLeft
+              Alignment = taCenter
+              AutoSize = False
+              Caption = 'Naissance'
+              Layout = tlCenter
+            end
+            object DateEdtDate_naissance1: TDBText
+              Left = 95
+              Height = 42
+              Top = 0
+              Width = 894
+              Align = alClient
+              Alignment = taCenter
+              AutoSize = False
+              Color = clWhite
+              DataField = 'naissance'
+              DataSource = DM.DsAdherent
+              Layout = tlCenter
+              ParentColor = False
+              Transparent = False
+            end
+          end
+          object Panel21: TPanel
+            Left = 1
+            Height = 42
+            Top = 51
+            Width = 989
+            Align = alTop
+            BevelOuter = bvNone
+            ClientHeight = 42
+            ClientWidth = 989
+            ParentBackground = False
+            TabOrder = 4
+            object Gsm1: TLabel
+              Left = 0
+              Height = 42
+              Top = 0
+              Width = 95
+              Align = alLeft
+              Alignment = taCenter
+              AutoSize = False
+              Caption = 'Gsm'
+              Layout = tlCenter
+            end
+            object DBEdtGsm1: TDBText
+              Left = 95
+              Height = 42
+              Top = 0
+              Width = 894
+              Align = alClient
+              Alignment = taCenter
+              Color = clWhite
+              DataField = 'tele'
+              DataSource = DM.DsAdherent
+              Layout = tlCenter
+              ParentColor = False
+              Transparent = False
+            end
+          end
+          object Panel22: TPanel
+            Left = 1
+            Height = 42
+            Top = 51
+            Width = 989
+            Align = alTop
+            BevelOuter = bvNone
+            ClientHeight = 42
+            ClientWidth = 989
+            ParentBackground = False
+            TabOrder = 5
+            object Email1: TLabel
+              Left = 0
+              Height = 42
+              Top = 0
+              Width = 95
+              Align = alLeft
+              Alignment = taCenter
+              AutoSize = False
+              Caption = 'Email'
+              Layout = tlCenter
+            end
+            object DBEdtEmail1: TDBText
+              Left = 95
+              Height = 42
+              Top = 0
+              Width = 894
+              Align = alClient
+              Alignment = taCenter
+              Color = clWhite
+              DataField = 'sexe'
+              DataSource = DM.DsAdherent
+              Layout = tlCenter
+              ParentColor = False
+              Transparent = False
+            end
+          end
+          object BtnCharger: TButton
+            Left = 1
+            Height = 40
+            Top = 51
+            Width = 989
+            Align = alTop
+            Caption = 'Charger Photo ....'
+            TabOrder = 6
+            OnClick = BtnChargerClick
+          end
+          object BtnDecharger: TButton
+            Left = 1
+            Height = 40
+            Top = 51
+            Width = 989
+            Align = alTop
+            Caption = 'Effacer Photo ....'
+            TabOrder = 7
+            OnClick = BtnDechargerClick
+          end
+          object BtnImprimerCarte: TButton
+            Left = 1
+            Height = 40
+            Top = 51
+            Width = 989
+            Align = alTop
+            Caption = 'Imprimer Carte Adherent'
+            TabOrder = 8
+            OnClick = BtnImprimerCarteClick
+          end
+        end
+      end
+      object Panel14: TPanel
+        Left = 0
+        Height = 42
+        Top = 84
+        Width = 1014
+        Align = alTop
+        Caption = 'Panel14'
+        ClientHeight = 42
+        ClientWidth = 1014
+        TabOrder = 1
+        object DBText2: TDBText
+          Left = 1
+          Height = 40
+          Top = 1
+          Width = 55
+          Align = alLeft
+          DataSource = DM.DsPSort
+        end
+        object DBEdit1: TDBEdit
+          Left = 56
+          Height = 40
+          Top = 1
+          Width = 68
+          DataSource = DM.DsPSort
+          Align = alLeft
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object DBEdit2: TDBEdit
+          Left = 124
+          Height = 40
+          Top = 1
+          Width = 68
+          DataSource = DM.DsPSort
+          Align = alLeft
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object DBDateTimePicker1: TDBDateTimePicker
+          Left = 192
+          Height = 40
+          Top = 1
+          Width = 96
+          DataSource = DM.DsPSort
+          ReadOnly = False
+          CenturyFrom = 1941
+          MaxDate = 2958465
+          MinDate = -53780
+          TabOrder = 2
+          TrailingSeparator = False
+          TextForNullDate = 'NULL'
+          LeadingZeros = True
+          Align = alLeft
+          Kind = dtkDate
+          TimeFormat = tf24
+          TimeDisplay = tdHMS
+          DateMode = dmComboBox
+          UseDefaultSeparators = True
+          HideDateTimeParts = []
+          MonthNames = 'Long'
+        end
+        object DBEdit3: TDBEdit
+          Left = 288
+          Height = 40
+          Top = 1
+          Width = 68
+          DataSource = DM.DsPSort
+          Align = alLeft
+          MaxLength = 0
+          TabOrder = 3
+        end
+        object Button1: TButton
+          Left = 887
+          Height = 40
+          Top = 1
+          Width = 63
+          Align = alRight
+          Caption = 'Button1'
+          TabOrder = 4
+        end
+        object Button2: TButton
+          Left = 950
+          Height = 40
+          Top = 1
+          Width = 63
+          Align = alRight
+          Caption = 'Button2'
+          TabOrder = 5
+        end
+      end
+    end
+  end
+  object OpenPictureDialog1: TOpenPictureDialog
+    Filter = 'JPEG Files (*.jpeg;*.jpg;*.jpe;*.jfif)|*.jpeg;*.jpg;*.jpe;*.jfif|Bitmap Files (*.bmp)|*.bmp'
+    InitialDir = './images'
+    Options = [ofEnableSizing, ofDontAddToRecent, ofViewDetail, ofAutoPreview]
+    Left = 248
+  end
+end
