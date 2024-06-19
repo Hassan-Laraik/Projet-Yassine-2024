@@ -1,7 +1,7 @@
 object FrmRecu: TFrmRecu
-  Left = 89
+  Left = 104
   Height = 593
-  Top = 138
+  Top = 126
   Width = 588
   Caption = 'FrmRecu'
   ClientHeight = 593
@@ -22,14 +22,14 @@ object FrmRecu: TFrmRecu
     ShowProgress = False
     object RLBand1: TRLBand
       Left = 38
-      Height = 448
+      Height = 424
       Top = 38
       Width = 453
       BandType = btTitle
       object RLDraw3: TRLDraw
         Left = 224
         Height = 120
-        Top = 320
+        Top = 288
         Width = 221
         Borders.Sides = sdCustom
         Borders.DrawLeft = False
@@ -48,7 +48,7 @@ object FrmRecu: TFrmRecu
       object RLDraw4: TRLDraw
         Left = 8
         Height = 120
-        Top = 320
+        Top = 288
         Width = 213
         Borders.Sides = sdCustom
         Borders.DrawLeft = False
@@ -64,22 +64,19 @@ object FrmRecu: TFrmRecu
       object RLDraw2: TRLDraw
         Left = 0
         Height = 128
-        Top = 183
+        Top = 151
         Width = 453
         Align = faTop
         Borders.Sides = sdCustom
-        Borders.DrawLeft = True
-        Borders.DrawTop = True
-        Borders.DrawRight = True
-        Borders.DrawBottom = True
+        Borders.DrawLeft = False
+        Borders.DrawTop = False
+        Borders.DrawRight = False
+        Borders.DrawBottom = False
         Borders.Width = 2
         Borders.Color = 6629277
-        Borders.FixedLeft = True
-        Borders.FixedTop = True
-        Borders.FixedRight = True
-        Borders.FixedBottom = True
         Brush.Color = clNone
         Brush.Style = bsClear
+        Pen.Color = 6629277
       end
       object RLDraw1: TRLDraw
         Left = 0
@@ -88,42 +85,22 @@ object FrmRecu: TFrmRecu
         Width = 453
         Align = faTop
         Borders.Sides = sdCustom
-        Borders.DrawLeft = True
-        Borders.DrawTop = True
-        Borders.DrawRight = True
-        Borders.DrawBottom = True
+        Borders.DrawLeft = False
+        Borders.DrawTop = False
+        Borders.DrawRight = False
+        Borders.DrawBottom = False
         Borders.Width = 2
         Borders.Color = 6629277
-        Borders.FixedLeft = True
-        Borders.FixedTop = True
-        Borders.FixedRight = True
-        Borders.FixedBottom = True
         Brush.Color = clNone
         Brush.Style = bsClear
+        Pen.Color = 6629277
       end
       object RLLabel3: TRLLabel
-        Left = 47
+        Left = 41
         Height = 16
-        Top = 208
+        Top = 168
         Width = 82
         Caption = 'Payé Pour : '
-      end
-      object RLLabel4: TRLLabel
-        Left = 0
-        Height = 16
-        Top = 151
-        Width = 453
-        Align = faTop
-        Alignment = taCenter
-        Caption = 'Montant Reçu En MAD'
-        Color = 6629277
-        Font.Color = clWhite
-        Font.Height = -14
-        Font.Name = 'Arial'
-        Font.Style = [fsBold]
-        ParentColor = False
-        ParentFont = False
-        Transparent = False
       end
       object RLLabel5: TRLLabel
         Left = 256
@@ -153,7 +130,7 @@ object FrmRecu: TFrmRecu
       object RLDBText2: TRLDBText
         Left = 240
         Height = 16
-        Top = 200
+        Top = 168
         Width = 34
         DataField = 'label'
         DataSource = DM.DsPaiement
@@ -172,11 +149,10 @@ object FrmRecu: TFrmRecu
         ParentFont = False
       end
       object RLDBText4: TRLDBText
-        Left = 0
+        Left = 232
         Height = 16
-        Top = 167
-        Width = 453
-        Align = faTop
+        Top = 240
+        Width = 62
         Alignment = taCenter
         Color = 6629277
         DataField = 'montant'
@@ -185,21 +161,22 @@ object FrmRecu: TFrmRecu
         Font.Height = -14
         Font.Name = 'Arial'
         Font.Style = [fsBold]
+        Layout = tlCenter
         ParentColor = False
         ParentFont = False
         Transparent = False
       end
       object RLLabel6: TRLLabel
-        Left = 47
+        Left = 40
         Height = 16
-        Top = 248
+        Top = 208
         Width = 107
         Caption = 'Montant Avale : '
       end
       object RLDBText5: TRLDBText
-        Left = 240
+        Left = 232
         Height = 16
-        Top = 248
+        Top = 208
         Width = 99
         DataField = 'TotalInscription'
         DataSource = DM.DsAdhesion
@@ -319,23 +296,40 @@ object FrmRecu: TFrmRecu
       object RLSystemInfo1: TRLSystemInfo
         Left = 62
         Height = 16
-        Top = 384
+        Top = 352
         Width = 67
         Info = itFullDate
       end
       object RLLabel11: TRLLabel
         Left = 56
         Height = 16
-        Top = 344
+        Top = 312
         Width = 88
         Caption = 'Imprimé Le : '
       end
       object RLLabel10: TRLLabel
         Left = 304
         Height = 16
-        Top = 336
+        Top = 304
         Width = 65
         Caption = 'Signature'
+      end
+      object RLLabel4: TRLLabel
+        Left = 41
+        Height = 16
+        Top = 240
+        Width = 158
+        Alignment = taCenter
+        Caption = 'Montant Reçu En MAD'
+        Color = 6629277
+        Font.Color = clWhite
+        Font.Height = -14
+        Font.Name = 'Arial'
+        Font.Style = [fsBold]
+        Layout = tlCenter
+        ParentColor = False
+        ParentFont = False
+        Transparent = False
       end
     end
   end

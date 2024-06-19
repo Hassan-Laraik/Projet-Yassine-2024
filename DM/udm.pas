@@ -5,7 +5,7 @@ unit uDM;
 interface
 
 uses
-  Classes, SysUtils, ExtDlgs, DB, ZConnection, ZDataset, ZAbstractRODataset;
+  Classes, SysUtils, ExtDlgs, DB, ZConnection, ZDataset, ZAbstractRODataset,dialogs;
 
 type
 
@@ -43,8 +43,8 @@ type
     ZtblPaiementmontant: TZBCDField;
     ZtblPaiement: TZTable;
     ZtblPaiementlabel: TZRawStringField;
-    ZReadQryPaiement: TZReadOnlyQuery;
-    DSReadQryPaiement: TDataSource;
+    ZReadQryDebitPaiement: TZReadOnlyQuery;
+    DSReadQryDebitPaiement: TDataSource;
     ZtblPaiementsolde: TZSmallIntField;
     Ztbl_view_adherentscin: TZRawStringField;
     Ztbl_view_adherentsnom: TZRawStringField;
@@ -57,6 +57,11 @@ type
     Ztbl_view_adherentsdebut: TZDateField;
     Ztbl_view_adherentsfin: TZDateField;
     Ztbl_view_adherentslabel: TZRawStringField;
+    ZReadQryCreditPaiement: TZReadOnlyQuery;
+    DSReadQryCreditPaiement: TDataSource;
+    ZReadQryPaiement: TZReadOnlyQuery;
+    DSReadQryPaiement: TDataSource;
+    ZtblAdhesionpaye: TZSmallIntField;
 
     procedure ZtblAdhesionprixChange(Sender: TField);
     procedure ZtblAdhesionprixValidate(Sender: TField);
@@ -64,6 +69,12 @@ type
     procedure ZtblAdhesionTotalInscriptionGetText(Sender: TField;var aText: string;
                                                                          DisplayText: Boolean);
     procedure ZtblPaiementsoldeGetText(Sender: TField; var aText: string;DisplayText: Boolean);
+    procedure DataModuleCreate(Sender: TObject);
+    procedure ZNXBeforeConnect(Sender: TObject);
+    procedure ZNXAfterConnect(Sender: TObject);
+    procedure ZtblPaiementAfterPost(DataSet: TDataSet);
+    procedure ZtblAdhesionpayeGetText(Sender: TField; var aText: string;
+      DisplayText: Boolean);
   private
 
   public
@@ -78,6 +89,11 @@ type
     procedure PriorAdhesion();
     procedure NextAdhesion();
 
+    procedure SetPayeAdhedion(aValue: Integer);
+
+    function GetCinAdhesion():string;
+    function GetIdSportAdhesion():string;
+    function GetPayeAdhedion():Boolean;
 
     function GetTotalAdhesion():Double;
     function GetEcheance: String;
@@ -109,6 +125,7 @@ type
     procedure NextAdherent();
 
     function GetCinAdheren() : string;
+    function GetNomAdherent():string;
 
     function ValidateAdherent():Boolean;
     function RechercherAdherent(aRecherche : string):boolean;
@@ -131,6 +148,12 @@ type
     procedure PriorSport();
     procedure NextSport();
 
+    function GetIdSport():string;
+    function GetLabelSport():string;
+    function GetTarifSport():Double;
+    function GetAssuranceSport():Double;
+    function GetTarifAndAssuranceSport():Double;
+
     function ValidateSport():Boolean;
     function RechercherSport(aRecherche : string):boolean;
 
@@ -147,19 +170,24 @@ type
 //--------------------------------FIN View Adherent ----------------------------------------------//
 
 //--------------------------------Paiement ------------------------------------------------------//
-     function GetSoldePaiement() : Boolean;
+
+
+function GetSoldePaiement() : Boolean;
+
+     function GetCinPaiement():string;
+     function GetIdSportPaiement: string;
 
      function IsBrowsePaiement() : Boolean;
      function IsEditOrInsertPaiemnt () : Boolean;
 
-     function FiltrerPaiement(aRecherche : string):boolean;
+     function FiltrerPaiement(aRecherche, aSport: string): boolean;
      function AddSportToPaiement(aSport: string):Boolean;
      function ValiderPaiement(aSolde: Boolean): Boolean;
      function ModifierPaiement: Boolean;
      function DebitPaiement(aAdherent : string):Double;
      function CreditPaiement(aAdherent : string):Double;
-     function DebitPaiement_(aAdherent : string):Tdataset;
-     function CreditPaiement_(aAdherent: string):Tdataset;
+     function DebitPaiement_(aAdherent,aSport : string):Double;
+     function CreditPaiement_(aAdherent,aSport: string):Double;
      function SoldePaiement_(aAdherent,aSport : string):Double;
 
 
@@ -502,11 +530,11 @@ begin
   Result := DM.Ztbl_view_adherents.Locate('cin',aRecherche,[loCaseInsensitive]) ;
 end;
 
-function TDM.FiltrerPaiement(aRecherche: string): boolean;
+function TDM.FiltrerPaiement(aRecherche,aSport: string): boolean;
 begin
  Result:= false;
  dm.ZtblPaiement.Filtered:=false;
- dm.ZtblPaiement.Filter := 'cin = '+QuotedStr(aRecherche);
+ dm.ZtblPaiement.Filter := 'cin = '+QuotedStr(aRecherche)+' and idsport = '+ QuotedStr(aSport);
  dm.ZtblPaiement.Filtered:=True;
  Result := (DM.ZtblPaiement.RecordCount > 0);
 end;
@@ -553,7 +581,6 @@ begin
 end;
 
 function TDM.DebitPaiement(aAdherent: string): Double;
-
 begin
    //Total des montants a payer
  result := 0;
@@ -565,30 +592,30 @@ begin
  Result:=  self.ZReadQryPaiement.FieldByName('somme').AsFloat;
 end;
 
-
-
-function TDM.CreditPaiement_(aAdherent: string): Tdataset;
-
+function TDM.CreditPaiement_(aAdherent, aSport: string): Double;
 begin
- result := nil;
- self.ZReadQryPaiement.Close;
- self.ZReadQryPaiement.SQL.Clear;
- self.ZReadQryPaiement.sql.Add('select * from credit_adhesion  where cin =:cin');
- self.ZReadQryPaiement.ParamByName('cin').AsString:=aAdherent;
- self.ZReadQryPaiement.Open;
- Result:=  self.ZReadQryPaiement;
-
+ //result := nil;
+ self.ZReadQryCreditPaiement.Close;
+ self.ZReadQryCreditPaiement.SQL.Clear;
+ self.ZReadQryCreditPaiement.sql.Add('select * from credit_adhesion_sport  where (cin =:cin)  and (idsport=:idsport) ' );
+ self.ZReadQryCreditPaiement.ParamByName('cin').AsString:=aAdherent;
+ self.ZReadQryCreditPaiement.ParamByName('idsport').AsString:= aSport;
+ self.ZReadQryCreditPaiement.Open;
+ //Result:=  self.ZReadQryPaiement;
+  Result := self.ZReadQryCreditPaiement.FieldByName('somme').AsFloat;
 end;
 
-function TDM.DebitPaiement_(aAdherent: string): Tdataset;
+function TDM.DebitPaiement_(aAdherent, aSport: string): Double;
 begin
- result := nil;
-  self.ZReadQryPaiement.Close;
-  self.ZReadQryPaiement.SQL.Clear;
-  self.ZReadQryPaiement.sql.Add('select * from debit_adhesion_sport  where cin =:cin');
-  self.ZReadQryPaiement.ParamByName('cin').AsString:=aAdherent;
-  self.ZReadQryPaiement.Open;
-  Result:=  self.ZReadQryPaiement;
+ //result := nil;
+  self.ZReadQryDebitPaiement.Close;
+  self.ZReadQryDebitPaiement.SQL.Clear;
+  self.ZReadQryDebitPaiement.sql.Add('select * from debit_adhesion_sport  where (cin =:cin )  and (idsport=:idsport) ');
+  self.ZReadQryDebitPaiement.ParamByName('cin').AsString:= aAdherent;
+  self.ZReadQryDebitPaiement.ParamByName('idsport').AsString:= aSport;
+  self.ZReadQryDebitPaiement.Open;
+ // Result:=  self.ZReadQryPaiement;
+ Result := self.ZReadQryDebitPaiement.FieldByName('somme').AsFloat;
 end;
 
 function TDM.SoldePaiement_(aAdherent, aSport: string): Double;
@@ -662,6 +689,119 @@ end;
 function TDM.GetEcheance(): String;
 begin
  Result := self.ZtblAdhesion.FieldByName('echeance').AsString;
+end;
+
+procedure TDM.DataModuleCreate(Sender: TObject);
+begin
+  try
+    self.ZNX.Connected:=True;
+  except
+    showMessage('Impossible de se connecter Pour l''instant');
+  end;
+end;
+
+procedure TDM.ZNXBeforeConnect(Sender: TObject);
+begin
+  self.ZNX.Protocol:='mysql';
+  self.ZNX.HostName:='localhost';
+  self.ZNX.Database:='salle_sport3';
+  self.ZNX.User:='root';
+  self.ZNX.Password:='12345678';
+end;
+
+
+procedure TDM.ZNXAfterConnect(Sender: TObject);
+begin
+  ZtblAdherent.Active:=True;
+   ZtblSport.active:=True;
+   ZtblAdhesion.Active:=True;
+   ZtblPaiement.Active:=True;
+end;
+
+function TDM.GetCinAdhesion(): string;
+begin
+  Result := Self.ZtblAdhesion.FieldByName('cin').AsString;
+end;
+
+function TDM.GetIdSportAdhesion(): string;
+begin
+  Result := Self.ZtblAdhesion.FieldByName('idsport').AsString;
+end;
+
+function TDM.GetNomAdherent(): string;
+begin
+  Result := Self.ZtblAdherent.FieldByName('nom').AsString;
+end;
+
+function TDM.GetIdSport(): string;
+begin
+  Result := Self.ZtblSport.FieldByName('idsport').AsString;
+end;
+
+function TDM.GetLabelSport(): string;
+begin
+  Result := Self.ZtblSport.FieldByName('label').AsString;
+end;
+
+function TDM.GetTarifSport(): Double;
+begin
+  Result := Self.ZtblSport.FieldByName('tarif').AsFloat;
+end;
+
+function TDM.GetAssuranceSport(): Double;
+begin
+   Result := Self.ZtblSport.FieldByName('assurance').AsFloat;
+end;
+
+function TDM.GetTarifAndAssuranceSport(): Double;
+begin
+   Result := Self.ZtblSport.FieldByName('tarif').AsFloat +  Self.ZtblSport.FieldByName('assurance').AsFloat;
+end;
+
+function TDM.GetCinPaiement: string;
+begin
+    Result := Self.ZtblPaiement.FieldByName('cin').AsString;
+end;
+
+function TDM.GetIdSportPaiement(): string;
+begin
+    Result := Self.ZtblPaiement.FieldByName('idsport').AsString;
+end;
+
+procedure TDM.ZtblPaiementAfterPost(DataSet: TDataSet);
+var
+  debit,credit : Double;
+  solde : Boolean;
+begin
+  debit := self.DebitPaiement_(DataSet.FieldByName('cin').AsString,DataSet.FieldByName('idsport').AsString);
+  credit:= self.CreditPaiement_(DataSet.FieldByName('cin').AsString,DataSet.FieldByName('idsport').AsString);
+  self.RechercherAdhesiont(DataSet.FieldByName('cin').AsString);
+  self.EditAdhesion();
+  //solde := (debit >= credit);
+  ShowMessage(FloatToStr(debit - credit));
+  if (debit > credit)  then
+     self.SetPayeAdhedion(0)
+     else
+     self.SetPayeAdhedion(1);
+  self.ValidateAdhesion();
+end;
+
+procedure TDM.SetPayeAdhedion(aValue: Integer);
+begin
+  self.ZtblAdhesion.FieldByName('paye').AsInteger:= aValue;
+end;
+
+function TDM.GetPayeAdhedion(): Boolean;
+begin
+   Result :=  self.ZtblAdhesion.FieldByName('paye').AsBoolean ;
+end;
+
+procedure TDM.ZtblAdhesionpayeGetText(Sender: TField; var aText: string;
+  DisplayText: Boolean);
+begin
+   if Tfield(sender).AsBoolean then aText:= 'Payé'
+   else
+     aText:= 'Non Payé'
 end;
 
 

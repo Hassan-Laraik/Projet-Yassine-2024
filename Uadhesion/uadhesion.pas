@@ -34,7 +34,6 @@ type
     PnlEditerDetailAdhesion: TPanel;
     PnlEditAdhesion: TPanel;
     Panel2: TPanel;
-    Panel3: TPanel;
     TabListeAdherents: TTabSheet;
     TabDetailAdherent: TTabSheet;
     TabListeAdhesion: TTabSheet;
@@ -59,7 +58,6 @@ type
     Panel26: TPanel;
     Nom: TLabel;
     DBEdtNom: TDBEdit;
-    Panel27: TPanel;
     Panel28: TPanel;
     TabSport: TTabSheet;
     Panel29: TPanel;
@@ -84,7 +82,6 @@ type
     PnlSide: TPanel;
     DBImage: TDBImage;
     Panel13: TPanel;
-    Cin1: TLabel;
     Panel30: TPanel;
     Nom1: TLabel;
     Panel19: TPanel;
@@ -113,7 +110,6 @@ type
     BtnModiferAdherent: TButton;
     EdtRechercheAdherent: TEdit;
     DBEdtCinAdhesion: TDBLookupComboBox;
-    BtnAppliquer: TButton;
     BtnNouveauSport: TButton;
     BtnModifierSport: TButton;
     BtnValiderSport: TButton;
@@ -123,13 +119,6 @@ type
     TabPaiement: TTabSheet;
     BtnPaiement: TButton;
     Panel15: TPanel;
-    Panel1: TPanel;
-    DBedtTotal: TDBText;
-    LblDebitebit: TLabel;
-    Lblcredit: TLabel;
-    LblSolde: TLabel;
-    Panel24: TPanel;
-    BtnRetourPaiement1: TButton;
     DBGrid3: TDBGrid;
     Panel4: TPanel;
     PnlEditerPaiement: TPanel;
@@ -144,6 +133,19 @@ type
     BtnModifierPaiement1: TButton;
     Panel31: TPanel;
     BtnImprimerRecu: TButton;
+    Panel1: TPanel;
+    DBedtTotal: TDBText;
+    Panel27: TPanel;
+    PnlAppliquerAdherentToAdhesion: TPanel;
+    BtnAppliquer: TButton;
+    Panel24: TPanel;
+    DBEdit7: TDBText;
+    DBEdit8: TDBText;
+    Cin1: TLabel;
+    Cin2: TLabel;
+    LblSolde_1: TLabel;
+    Panel3: TPanel;
+    BtnRetourPaiement1: TButton;
     procedure BTnNouveauAdhesionClick(Sender: TObject);
     procedure BtnModifierAdhesionClick(Sender: TObject);
     procedure BtnValiderAdhesionClick(Sender: TObject);
@@ -192,6 +194,8 @@ type
     procedure BtnImprimerRecuClick(Sender: TObject);
     procedure DBGridAdhesionDrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure DBGrid3SelectEditor(Sender: TObject; Column: TColumn;
+      var Editor: TWinControl);
   private
     function ValiderSaisieAdhesion(): boolean;
     procedure GestionBottonsAdhesion;
@@ -314,7 +318,7 @@ procedure TFrmAdhesion.FormCreate(Sender: TObject);
 begin
   scaleBy(100,120);
   self.GestionBottonsAdhesion;
-  //self.GestionBottonsAdhesion;
+  self.GestionBottonsAdhesion;
   self.GestionBottonsSports;
   self.GestionBottonsPaiements;
   PageControl1.ShowTabs:=false;
@@ -325,7 +329,7 @@ procedure TFrmAdhesion.FormResize(Sender: TObject);
 var
   WidthDbedit : integer;
 begin
-  WidthDbedit :=Round((PnlEditerDetailAdhesion.Width-5)/8);
+  WidthDbedit :=Round((PnlEditerDetailAdhesion.Width-5)/9);
   PnlCinAdhesion.Width:= WidthDbedit;
   DbedtSport.Width:= WidthDbedit;
   DbedtDebut.Width:= WidthDbedit;
@@ -474,18 +478,25 @@ end;
 
 procedure TFrmAdhesion.DBGridAdhesionSelectEditor(Sender: TObject;
   Column: TColumn; var Editor: TWinControl);
+//var
+//  debit,credit : double;
+//begin
+//  if DM.IsBrowseAdhesion()then
+//  begin
+//     DM.RechercherAdherent(dm.ZtblAdhesion.FieldByName('cin').AsString);
+//  end;
+//  credit := dm.CreditPaiement(dm.ZtblAdhesion.FieldByName('cin').AsString);
+//  debit  := dm.DebitPaiement(dm.ZtblAdhesion.FieldByName('cin').AsString);
+//  LblDebitebit.caption :=  'DEBIT : ' + FloatToStr(debit);
+//  Lblcredit.caption    :=  'CREDIT : ' + FloatToStr(credit);
+//  LblSolde.caption     :=  'SOLDE :  ' + FloatToStr(debit - credit);
 var
-  debit,credit : double;
+  debit,credit,solde : Double;
 begin
-  if DM.IsBrowseAdhesion()then
-  begin
-     DM.RechercherAdherent(dm.ZtblAdhesion.FieldByName('cin').AsString);
-  end;
-  credit := dm.CreditPaiement(dm.ZtblAdhesion.FieldByName('cin').AsString);
-  debit  := dm.DebitPaiement(dm.ZtblAdhesion.FieldByName('cin').AsString);
-  LblDebitebit.caption :=  'DEBIT : ' + FloatToStr(debit);
-  Lblcredit.caption    :=  'CREDIT : ' + FloatToStr(credit);
-  LblSolde.caption     :=  'SOLDE :  ' + FloatToStr(debit - credit);
+  credit :=DM.CreditPaiement_(dm.GetCinAdhesion(),dm.GetIdSportAdhesion());
+  debit := DM.DebitPaiement_(dm.GetCinAdhesion(),dm.GetIdSportAdhesion());
+  solde := debit - credit;
+  LblSolde_1.Caption:= 'Solde '+ FloatToStr(solde);
 end;
 
 procedure TFrmAdhesion.BtnChargerPhotoClick(Sender: TObject);
@@ -664,6 +675,12 @@ end;
 
 procedure TFrmAdhesion.BtnImprimeraiementClick(Sender: TObject);
 begin
+  if DM.GetPayeAdhedion() then
+      begin
+       exit;
+        //ShowMessage('Activite Totalement Paye');
+      end;
+ //verifier si solede> 0
  if NOT DM.AddSportToPaiement(DbedtSport.Text) then
  begin
   ShowMessage('Probleme : Impossible D''Effectuer Un Ajout Paiement !');
@@ -676,6 +693,11 @@ var
   Reponse : Word;
   ReponseSolde,ReponseNonSolde : Boolean;
 begin
+  if DM.GetPayeAdhedion() then
+      begin
+       exit;
+        //ShowMessage('Activite Totalement Paye');
+      end;
    ReponseSolde := false;
    ReponseNonSolde := false;
    FrmPersoAlertDialog.IntializePesoAlertDialog('Solder Paiement',
@@ -715,7 +737,11 @@ end;
 
 procedure TFrmAdhesion.BtnPaiementClick(Sender: TObject);
 begin
- DM.FiltrerPaiement(dm.ZtblAdhesion.FieldByName('cin').AsString);
+  if DM.GetPayeAdhedion() then
+      begin
+        ShowMessage('Activite Totalement Paye');
+      end;
+ DM.FiltrerPaiement(dm.GetCinAdheren(),dm.GetIdSportAdhesion());
  PageControl1.ActivePage := TabPaiement;
 end;
 
@@ -741,6 +767,11 @@ end;
 
 procedure TFrmAdhesion.BtnModifierPaiement1Click(Sender: TObject);
 begin
+  if DM.GetPayeAdhedion() then
+      begin
+        exit;
+        //ShowMessage('Activite Totalement Paye');
+      end;
   if NOT DM.ModifierPaiement() then
       begin
         ShowMessage('Operation Non Autorisée sur Paiement Soldée');
@@ -764,6 +795,17 @@ begin
     end;
     }
 
+end;
+
+procedure TFrmAdhesion.DBGrid3SelectEditor(Sender: TObject; Column: TColumn;
+  var Editor: TWinControl);
+var
+  debit,credit,solde : Double;
+begin
+  credit :=DM.CreditPaiement_(dm.GetCinPaiement(),dm.GetIdSportPaiement());
+  debit := DM.DebitPaiement_(dm.GetCinPaiement(),dm.GetIdSportPaiement());
+  solde := debit - credit;
+  LblSolde_1.Caption:= 'Solde '+ FloatToStr(solde);
 end;
 
 end.

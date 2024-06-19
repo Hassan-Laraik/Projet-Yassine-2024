@@ -102,6 +102,7 @@
         <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FrmRecu"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uRecu_Paiement"/>
       </Unit>

@@ -78,6 +78,8 @@ CREATE TABLE IF NOT EXISTS `adhesions` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
+alter table adhesions add column paye tinyint(1) default 0;
+
 CREATE INDEX `fk_adherent_has_sports_sports1_idx` ON `adhesions` (`idsport` ASC) VISIBLE;
 
 CREATE INDEX `fk_adhesion_adherents1_idx` ON `adhesions` (`cin` ASC) VISIBLE;

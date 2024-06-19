@@ -1,8 +1,9 @@
 object DM: TDM
+  OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 382
-  HorizontalOffset = 202
-  VerticalOffset = 222
+  HorizontalOffset = 63
+  VerticalOffset = 230
   Width = 773
   PPI = 81
   object ZNX: TZConnection
@@ -11,6 +12,8 @@ object DM: TDM
       'RawStringEncoding=DB_CP'
     )
     Connected = True
+    BeforeConnect = ZNXBeforeConnect
+    AfterConnect = ZNXAfterConnect
     DisableSavepoints = False
     HostName = 'localhost'
     Port = 0
@@ -23,7 +26,6 @@ object DM: TDM
   end
   object ZtblSport: TZTable
     Connection = ZNX
-    Active = True
     TableName = 'sports'
     Left = 128
     Top = 20
@@ -69,7 +71,6 @@ object DM: TDM
   end
   object ZtblAdherent: TZTable
     Connection = ZNX
-    Active = True
     TableName = 'adherents'
     Left = 223
     Top = 20
@@ -171,6 +172,16 @@ object DM: TDM
       Required = False
       OnGetText = ZtblAdhesionTotalInscriptionGetText
     end
+    object ZtblAdhesionpaye: TZSmallIntField
+      FieldKind = fkData
+      FieldName = 'paye'
+      Index = 9
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      OnGetText = ZtblAdhesionpayeGetText
+    end
   end
   object DsPSort: TDataSource
     DataSet = ZtblSport
@@ -199,7 +210,6 @@ object DM: TDM
   end
   object Ztbl_view_adherents: TZTable
     Connection = ZNX
-    Active = True
     TableName = 'view_adherents_inscris'
     Left = 240
     Top = 216
@@ -317,7 +327,7 @@ object DM: TDM
   end
   object ZtblPaiement: TZTable
     Connection = ZNX
-    Active = True
+    AfterPost = ZtblPaiementAfterPost
     TableName = 'paiements'
     Left = 464
     Top = 44
@@ -393,15 +403,46 @@ object DM: TDM
       OnGetText = ZtblPaiementsoldeGetText
     end
   end
+  object ZReadQryDebitPaiement: TZReadOnlyQuery
+    Connection = ZNX
+    SQL.Strings = (
+      'select * from debit_adhesion _sport'
+    )
+    Params = <>
+    Left = 656
+    Top = 40
+  end
+  object DSReadQryDebitPaiement: TDataSource
+    DataSet = ZReadQryDebitPaiement
+    Left = 648
+    Top = 104
+  end
+  object ZReadQryCreditPaiement: TZReadOnlyQuery
+    Connection = ZNX
+    SQL.Strings = (
+      'select * from credit_adhesion_sport'
+    )
+    Params = <>
+    Left = 656
+    Top = 200
+  end
+  object DSReadQryCreditPaiement: TDataSource
+    DataSet = ZReadQryCreditPaiement
+    Left = 656
+    Top = 304
+  end
   object ZReadQryPaiement: TZReadOnlyQuery
     Connection = ZNX
+    SQL.Strings = (
+      'select * from credit_adhesion'
+    )
     Params = <>
-    Left = 672
-    Top = 40
+    Left = 400
+    Top = 304
   end
   object DSReadQryPaiement: TDataSource
     DataSet = ZReadQryPaiement
-    Left = 678
-    Top = 128
+    Left = 232
+    Top = 320
   end
 end

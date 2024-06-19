@@ -17,7 +17,6 @@ type
     RLDraw2: TRLDraw;
     RLDraw1: TRLDraw;
     RLLabel3: TRLLabel;
-    RLLabel4: TRLLabel;
     RLLabel5: TRLLabel;
     RLDBText1: TRLDBText;
     RLDBText2: TRLDBText;
@@ -38,6 +37,7 @@ type
     RLLabel11: TRLLabel;
     RLDraw4: TRLDraw;
     RLLabel10: TRLLabel;
+    RLLabel4: TRLLabel;
   private
 
   public
