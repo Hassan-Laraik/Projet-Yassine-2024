@@ -9,7 +9,7 @@
         <Filename Value="project1.lpr"/>
         <IsPartOfProject Value="True"/>
         <CursorPos X="17" Y="7"/>
-        <UsageCount Value="133"/>
+        <UsageCount Value="136"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -21,10 +21,10 @@
         <UnitName Value="Uadhesion"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="755"/>
-        <CursorPos X="6" Y="769"/>
+        <TopLine Value="479"/>
+        <CursorPos X="42" Y="498"/>
         <ComponentState Value="2"/>
-        <UsageCount Value="133"/>
+        <UsageCount Value="136"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -38,7 +38,8 @@
         <EditorIndex Value="2"/>
         <TopLine Value="91"/>
         <CursorPos X="50" Y="95"/>
-        <UsageCount Value="133"/>
+        <ComponentState Value="2"/>
+        <UsageCount Value="136"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -50,9 +51,9 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="uDM"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="768"/>
-        <CursorPos X="26" Y="779"/>
-        <UsageCount Value="133"/>
+        <TopLine Value="808"/>
+        <CursorPos X="4" Y="831"/>
+        <UsageCount Value="136"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -66,7 +67,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="9"/>
         <CursorPos X="78" Y="21"/>
-        <UsageCount Value="93"/>
+        <UsageCount Value="96"/>
       </Unit>
       <Unit>
         <Filename Value="Reports\Carte_Adherent\ucarte_adherent.pas"/>
@@ -78,7 +79,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="64"/>
         <CursorPos X="42" Y="71"/>
-        <UsageCount Value="84"/>
+        <UsageCount Value="87"/>
       </Unit>
       <Unit>
         <Filename Value="Reports\Recu_paiement\urecu_paiement.pas"/>
@@ -89,8 +90,8 @@
         <UnitName Value="uRecu_Paiement"/>
         <EditorIndex Value="3"/>
         <TopLine Value="8"/>
-        <CursorPos X="64" Y="18"/>
-        <UsageCount Value="39"/>
+        <CursorPos X="31" Y="15"/>
+        <UsageCount Value="42"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -158,9 +159,9 @@
         <Filename Value="..\..\..\..\..\usr\share\lazarus\3.2.0\lcl\lresources.pp"/>
         <UnitName Value="LResources"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="253"/>
-        <CursorPos X="30" Y="3164"/>
-        <UsageCount Value="8"/>
+        <TopLine Value="3150"/>
+        <CursorPos Y="3164"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\..\..\usr\share\lazarus\3.2.0\lcl\forms.pp"/>
@@ -179,78 +180,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="489" Column="9" TopLine="481"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="488" Column="9" TopLine="480"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="487" Column="9" TopLine="479"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="495" Column="9" TopLine="487"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="494" Column="9" TopLine="486"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="495" Column="9" TopLine="487"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="496" Column="9" TopLine="488"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="495" Column="9" TopLine="487"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="494" Column="9" TopLine="486"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="496" Column="9" TopLine="488"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="495" Column="9" TopLine="487"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="494" Column="9" TopLine="486"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="493" Column="9" TopLine="485"/>
-      </Position>
-      <Position>
-        <Filename Value="Uadhesion\uadhesion.pas"/>
-        <Caret Line="492" Column="9" TopLine="484"/>
-      </Position>
-      <Position>
-        <Filename Value="DM\udm.pas"/>
-        <Caret Line="780" Column="15" TopLine="759"/>
-      </Position>
-      <Position>
-        <Filename Value="DM\udm.pas"/>
-        <Caret Line="92" Column="15" TopLine="78"/>
-      </Position>
-      <Position>
-        <Filename Value="DM\udm.pas"/>
-        <Caret Line="780" Column="71" TopLine="763"/>
-      </Position>
-      <Position>
-        <Filename Value="DM\udm.pas"/>
-        <Caret Line="783" Column="22" TopLine="762"/>
-      </Position>
       <Position>
         <Filename Value="DM\udm.pas"/>
         <Caret Line="92" Column="15" TopLine="78"/>
@@ -298,6 +227,78 @@
       <Position>
         <Filename Value="Uadhesion\uadhesion.pas"/>
         <Caret Line="695" Column="9" TopLine="681"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="779" Column="26" TopLine="768"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="768" Column="71" TopLine="755"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="789" Column="10" TopLine="786"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="792" Column="46" TopLine="779"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="784" Column="25" TopLine="776"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="197" Column="15" TopLine="184"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="621" Column="20" TopLine="614"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="625" Column="20" TopLine="618"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="819" TopLine="800"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="87" Column="25" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="513" Column="38" TopLine="492"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="79" Column="34" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="830" TopLine="800"/>
+      </Position>
+      <Position>
+        <Filename Value="DM\udm.pas"/>
+        <Caret Line="818" Column="39" TopLine="808"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="500" Column="40" TopLine="486"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="753" Column="15" TopLine="746"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="741" Column="23" TopLine="730"/>
+      </Position>
+      <Position>
+        <Filename Value="Uadhesion\uadhesion.pas"/>
+        <Caret Line="806" Column="29" TopLine="796"/>
       </Position>
     </JumpHistory>
     <RunParams>

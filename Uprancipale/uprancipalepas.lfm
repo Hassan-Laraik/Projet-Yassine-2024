@@ -1,11 +1,11 @@
 object Frmprancipale: TFrmprancipale
-  Left = 20
-  Height = 515
-  Top = 140
-  Width = 938
+  Left = 0
+  Height = 708
+  Top = 23
+  Width = 1366
   Caption = 'Frmprancipale'
-  ClientHeight = 515
-  ClientWidth = 938
+  ClientHeight = 708
+  ClientWidth = 1366
   DesignTimePPI = 81
   KeyPreview = True
   OnMouseEnter = FormMouseEnter
@@ -14,9 +14,9 @@ object Frmprancipale: TFrmprancipale
   WindowState = wsMaximized
   object Image1: TImage
     Left = 0
-    Height = 515
+    Height = 708
     Top = 0
-    Width = 938
+    Width = 1366
     Align = alClient
     Picture.Data = {
       0A544A706567496D61676517990600FFD8FFE000104A46494600010101004800

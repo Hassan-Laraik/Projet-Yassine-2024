@@ -74,6 +74,84 @@ object DM: TDM
     TableName = 'adherents'
     Left = 223
     Top = 20
+    object ZtblAdherentcin: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'cin'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
+    object ZtblAdherentnom: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'nom'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 45
+    end
+    object ZtblAdherentprenom: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'prenom'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 45
+    end
+    object ZtblAdherentadress: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'adress'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 45
+    end
+    object ZtblAdherenttele: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'tele'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 45
+    end
+    object ZtblAdherentsexe: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'sexe'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 45
+    end
+    object ZtblAdherentnaissance: TZDateField
+      FieldKind = fkData
+      FieldName = 'naissance'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object ZtblAdherentphoto: TZBlobField
+      FieldKind = fkData
+      FieldName = 'photo'
+      Index = 7
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
   end
   object ZtblAdhesion: TZTable
     OnCalcFields = ZtblAdhesionCalcFields
@@ -411,6 +489,26 @@ object DM: TDM
     Params = <>
     Left = 656
     Top = 40
+    object ZReadQryDebitPaiementcin: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'cin'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 10
+    end
+    object ZReadQryDebitPaiementsomme: TZDoubleField
+      FieldKind = fkData
+      FieldName = 'somme'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Precision = 23
+    end
   end
   object DSReadQryDebitPaiement: TDataSource
     DataSet = ZReadQryDebitPaiement
@@ -418,6 +516,7 @@ object DM: TDM
     Top = 104
   end
   object ZReadQryCreditPaiement: TZReadOnlyQuery
+    BeforeOpen = ZReadQryCreditPaiementBeforeOpen
     Connection = ZNX
     SQL.Strings = (
       'select * from credit_adhesion_sport'
@@ -425,6 +524,39 @@ object DM: TDM
     Params = <>
     Left = 656
     Top = 200
+    object ZReadQryCreditPaiementcin: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'cin'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Size = 10
+    end
+    object ZReadQryCreditPaiementidsport: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'idsport'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+    end
+    object ZReadQryCreditPaiementsomme: TZFMTBCDField
+      FieldKind = fkData
+      FieldName = 'somme'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = True
+      Required = False
+      Precision = 28
+      Currency = False
+      MaxValue = '0'
+      MinValue = '0'
+      Size = 2
+    end
   end
   object DSReadQryCreditPaiement: TDataSource
     DataSet = ZReadQryCreditPaiement

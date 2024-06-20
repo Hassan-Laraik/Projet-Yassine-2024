@@ -62,6 +62,19 @@ type
     ZReadQryPaiement: TZReadOnlyQuery;
     DSReadQryPaiement: TDataSource;
     ZtblAdhesionpaye: TZSmallIntField;
+    ZtblAdherentcin: TZRawStringField;
+    ZtblAdherentnom: TZRawStringField;
+    ZtblAdherentprenom: TZRawStringField;
+    ZtblAdherentadress: TZRawStringField;
+    ZtblAdherenttele: TZRawStringField;
+    ZtblAdherentsexe: TZRawStringField;
+    ZtblAdherentnaissance: TZDateField;
+    ZtblAdherentphoto: TZBlobField;
+    ZReadQryDebitPaiementcin: TZRawStringField;
+    ZReadQryDebitPaiementsomme: TZDoubleField;
+    ZReadQryCreditPaiementcin: TZRawStringField;
+    ZReadQryCreditPaiementidsport: TZIntegerField;
+    ZReadQryCreditPaiementsomme: TZFMTBCDField;
 
     procedure ZtblAdhesionprixChange(Sender: TField);
     procedure ZtblAdhesionprixValidate(Sender: TField);
@@ -75,6 +88,9 @@ type
     procedure ZtblPaiementAfterPost(DataSet: TDataSet);
     procedure ZtblAdhesionpayeGetText(Sender: TField; var aText: string;
       DisplayText: Boolean);
+    procedure ZReadQryCreditPaiementsommeGetText(Sender: TField;
+      var aText: string; DisplayText: Boolean);
+    procedure ZReadQryCreditPaiementBeforeOpen(DataSet: TDataSet);
   private
 
   public
@@ -803,6 +819,19 @@ begin
    else
      aText:= 'Non Payé'
 end;
+
+procedure TDM.ZReadQryCreditPaiementsommeGetText(Sender: TField;
+  var aText: string; DisplayText: Boolean);
+begin
+
+end;
+
+procedure TDM.ZReadQryCreditPaiementBeforeOpen(DataSet: TDataSet);
+begin
+
+end;
+
+
 
 
 

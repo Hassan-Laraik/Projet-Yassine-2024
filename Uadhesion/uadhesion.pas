@@ -493,10 +493,24 @@ procedure TFrmAdhesion.DBGridAdhesionSelectEditor(Sender: TObject;
 var
   debit,credit,solde : Double;
 begin
+  if DM.IsBrowseAdhesion()then
+  begin
+     DM.RechercherAdherent(dm.GetCinAdhesion());
+  end;
+
   credit :=DM.CreditPaiement_(dm.GetCinAdhesion(),dm.GetIdSportAdhesion());
   debit := DM.DebitPaiement_(dm.GetCinAdhesion(),dm.GetIdSportAdhesion());
   solde := debit - credit;
-  LblSolde_1.Caption:= 'Solde '+ FloatToStr(solde);
+  //LblSolde_1.Caption:= 'Solde '+ FloatToStr(solde);
+  if  credit = 0  then  DBEdit8.Caption:='0.00';
+   if solde > 0 then
+    begin
+       LblSolde_1.Caption:= 'Reste à Payer '+ FloatToStr(solde);
+    end else
+    begin
+       LblSolde_1.Caption := 'Rien à Solder';
+    end;
+
 end;
 
 procedure TFrmAdhesion.BtnChargerPhotoClick(Sender: TObject);
@@ -693,6 +707,7 @@ var
   Reponse : Word;
   ReponseSolde,ReponseNonSolde : Boolean;
 begin
+ // verifier si adhesion est Paye
   if DM.GetPayeAdhedion() then
       begin
        exit;
@@ -805,7 +820,13 @@ begin
   credit :=DM.CreditPaiement_(dm.GetCinPaiement(),dm.GetIdSportPaiement());
   debit := DM.DebitPaiement_(dm.GetCinPaiement(),dm.GetIdSportPaiement());
   solde := debit - credit;
-  LblSolde_1.Caption:= 'Solde '+ FloatToStr(solde);
+  if solde > 0 then
+    begin
+       LblSolde_1.Caption:= 'Reste à Payer '+ FloatToStr(solde);
+    end else
+    begin
+       LblSolde_1.Caption := 'Rien à Solder';
+    end;
 end;
 
 end.
