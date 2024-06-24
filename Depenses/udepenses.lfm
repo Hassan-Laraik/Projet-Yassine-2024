@@ -1,0 +1,308 @@
+object FrmDepenses: TFrmDepenses
+  Left = 37
+  Height = 516
+  Top = 163
+  Width = 1035
+  Caption = 'FrmDepenses'
+  ClientHeight = 516
+  ClientWidth = 1035
+  DesignTimePPI = 81
+  OnResize = FormResize
+  OnShow = FormShow
+  LCLVersion = '3.2.0.0'
+  object Panel1: TPanel
+    Left = 0
+    Height = 42
+    Top = 0
+    Width = 1035
+    Align = alTop
+    Caption = 'Centre de Gestion et enregistremet Des Depenses'
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 0
+    Height = 42
+    Top = 474
+    Width = 1035
+    Align = alBottom
+    Caption = 'Panel2'
+    TabOrder = 1
+  end
+  object PnlEditerDetailDepense: TPanel
+    Left = 0
+    Height = 42
+    Top = 42
+    Width = 1035
+    Align = alTop
+    Caption = 'PnlEditerDetailDepense'
+    ClientHeight = 42
+    ClientWidth = 1035
+    TabOrder = 2
+    object BtnPremier: TButton
+      Left = 1
+      Height = 40
+      Top = 1
+      Width = 63
+      Align = alLeft
+      Caption = '<<'
+      TabOrder = 0
+      OnClick = BtnPremierClick
+    end
+    object BtnAvant: TButton
+      Left = 64
+      Height = 40
+      Top = 1
+      Width = 63
+      Align = alLeft
+      Caption = '<'
+      TabOrder = 1
+      OnClick = BtnAvantClick
+    end
+    object BtnDernier: TButton
+      Left = 651
+      Height = 40
+      Top = 1
+      Width = 63
+      Align = alRight
+      Caption = '>>'
+      TabOrder = 2
+      OnClick = BtnDernierClick
+    end
+    object BtnSuivant: TButton
+      Left = 588
+      Height = 40
+      Top = 1
+      Width = 63
+      Align = alRight
+      Caption = '>'
+      TabOrder = 3
+      OnClick = BtnSuivantClick
+    end
+    object EdtRecherche: TEdit
+      Left = 127
+      Height = 40
+      Top = 1
+      Width = 461
+      Align = alClient
+      TabOrder = 4
+    end
+    object BtnNouveauDepense: TButton
+      Left = 714
+      Height = 40
+      Top = 1
+      Width = 80
+      Align = alRight
+      Caption = 'Nouveau'
+      TabOrder = 5
+      OnClick = BtnNouveauDepenseClick
+    end
+    object BtnEditerDepense: TButton
+      Left = 794
+      Height = 40
+      Top = 1
+      Width = 80
+      Align = alRight
+      Caption = 'Editer'
+      TabOrder = 6
+      OnClick = BtnEditerDepenseClick
+    end
+    object BtnAnnulerDepense: TButton
+      Left = 954
+      Height = 40
+      Top = 1
+      Width = 80
+      Align = alRight
+      Caption = 'Annuler'
+      TabOrder = 7
+      OnClick = BtnAnnulerDepenseClick
+    end
+    object BtnValiderDepense: TButton
+      Left = 874
+      Height = 40
+      Top = 1
+      Width = 80
+      Align = alRight
+      Caption = 'Valider'
+      TabOrder = 8
+      OnClick = BtnValiderDepenseClick
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 348
+    Top = 126
+    Width = 1035
+    Align = alClient
+    AutoFillColumns = True
+    Color = clWindow
+    Columns = <    
+      item
+        Title.Caption = 'montant'
+        Width = 169
+        FieldName = 'montant'
+      end    
+      item
+        PickList.Strings = (
+          'Eau'
+          'Electricite'
+          'Menage'
+          'Gardinage'
+          'Jardinage'
+          'Louer'
+          'Telephone'
+          'Internet'
+          'Maintenence'
+          'Virement'
+          'Depot Banc'
+          'Retrait Caisse'
+          'Avance Personnel'
+          'Retrait Personnel'
+          'Bureautique'
+          'Autres'
+        )
+        Title.Caption = 'benificiaire'
+        Width = 169
+        FieldName = 'benificiaire'
+      end    
+      item
+        ButtonStyle = cbsPickList
+        PickList.Strings = (
+          'Facture'
+          'Bon Paiement'
+          'Bon Retrait Personnel'
+          'Bon Avance Personnel'
+          'Bon Virement'
+        )
+        Title.Caption = 'document'
+        Width = 168
+        FieldName = 'document'
+      end    
+      item
+        Title.Caption = 'numero_document'
+        Width = 168
+        FieldName = 'numero_document'
+      end    
+      item
+        Title.Caption = 'date_paiement'
+        Width = 168
+        FieldName = 'date_paiement'
+      end    
+      item
+        Title.Caption = 'observations'
+        Width = 168
+        FieldName = 'observations'
+      end>
+    DataSource = DM.DSDepenses
+    TabOrder = 3
+  end
+  object PnlSaisieDetailDepense: TPanel
+    Left = 0
+    Height = 42
+    Top = 84
+    Width = 1035
+    Align = alTop
+    Caption = 'PnlSaisieDetailDepense'
+    ClientHeight = 42
+    ClientWidth = 1035
+    TabOrder = 4
+    object DBEdtMontant: TDBEdit
+      Left = 1
+      Height = 40
+      Top = 1
+      Width = 175
+      DataField = 'montant'
+      DataSource = DM.DSDepenses
+      Align = alLeft
+      Alignment = taRightJustify
+      MaxLength = 0
+      TabOrder = 0
+    end
+    object DBCmbxBenigivaire: TDBComboBox
+      Left = 176
+      Height = 40
+      Top = 1
+      Width = 171
+      Align = alLeft
+      DataField = 'benificiaire'
+      DataSource = DM.DSDepenses
+      ItemHeight = 0
+      Items.Strings = (
+        'Eau'
+        'Electricite'
+        'Menage'
+        'Gardinage'
+        'Jardinage'
+        'Louer'
+        'Telephone'
+        'Internet'
+        'Maintenence'
+        'Virement'
+        'Depot Banc'
+        'Retrait Caisse'
+        'Avance Personnel'
+        'Retrait Personnel'
+        'Bureautique'
+        'Autres'
+      )
+      MaxLength = 0
+      TabOrder = 1
+    end
+    object DBCmbxFacture: TDBComboBox
+      Left = 347
+      Height = 40
+      Top = 1
+      Width = 168
+      Align = alLeft
+      DataField = 'document'
+      DataSource = DM.DSDepenses
+      ItemHeight = 0
+      Items.Strings = (
+        'Bon Paiement'
+        'Facture'
+        'Bon Retrait Personnel'
+        'Bon Avance Personnel'
+        'Bon Virement'
+      )
+      MaxLength = 0
+      TabOrder = 2
+    end
+    object DBEdtNumDocument: TDBEdit
+      Left = 515
+      Height = 40
+      Top = 1
+      Width = 168
+      DataField = 'numero_document'
+      DataSource = DM.DSDepenses
+      Align = alLeft
+      MaxLength = 45
+      TabOrder = 3
+    end
+    object DBDateOaiement: TDBDateEdit
+      Left = 683
+      Height = 40
+      Top = 1
+      Width = 169
+      CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+      DateOrder = doNone
+      ButtonWidth = 19
+      Align = alLeft
+      NumGlyphs = 1
+      MaxLength = 0
+      TabOrder = 4
+      Text = '30/12/2000'
+      DataField = 'date_paiement'
+      DataSource = DM.DSDepenses
+    end
+    object DBEdyObservation: TDBEdit
+      Left = 852
+      Height = 40
+      Top = 1
+      Width = 174
+      DataField = 'observations'
+      DataSource = DM.DSDepenses
+      Align = alLeft
+      MaxLength = 200
+      TabOrder = 5
+    end
+  end
+end

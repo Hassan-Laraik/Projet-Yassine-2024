@@ -75,6 +75,8 @@ type
     ZReadQryCreditPaiementcin: TZRawStringField;
     ZReadQryCreditPaiementidsport: TZIntegerField;
     ZReadQryCreditPaiementsomme: TZFMTBCDField;
+    ZtblDepenses: TZTable;
+    DSDepenses: TDataSource;
 
     procedure ZtblAdhesionprixChange(Sender: TField);
     procedure ZtblAdhesionprixValidate(Sender: TField);
@@ -208,6 +210,21 @@ function GetSoldePaiement() : Boolean;
 
 
 //-------------------------------FIN Paiement ----------------------------------------------------//
+
+//-------------------------------Debut Paiement ----------------------------------------------------//
+        procedure AddDepense();
+        procedure EditDepense();
+        procedure CancelDepense();
+        procedure DeleteDepense();
+        function ValidateDepense():Boolean;
+
+        procedure FirstDepense();
+        procedure Lastepense();
+        procedure Priorepense();
+        procedure Nextepense();
+
+        function IsEditOrInsertDepense() : Boolean;
+        function IsBrowseDepense() : Boolean;
   end;
 
 var
@@ -829,6 +846,74 @@ end;
 procedure TDM.ZReadQryCreditPaiementBeforeOpen(DataSet: TDataSet);
 begin
 
+end;
+
+procedure TDM.AddDepense();
+begin
+  if self.ZtblDepenses.State  in [dsInsert,dsEdit] then exit;
+  self.ZtblDepenses.Append;
+end;
+
+procedure TDM.CancelDepense();
+begin
+  if NOT (self.ZtblDepenses.State  in [dsInsert,dsEdit]) then exit;
+  self.ZtblDepenses.Cancel;
+end;
+
+procedure TDM.DeleteDepense();
+begin
+   //
+end;
+
+procedure TDM.EditDepense();
+begin
+  if self.ZtblDepenses.State  in [dsInsert,dsEdit] then exit;
+  self.ZtblDepenses.Edit;
+end;
+
+function TDM.ValidateDepense(): Boolean;
+begin
+  try
+     if NOT(self.IsEditOrInsertDepense()) then exit;
+     self.ZtblDepenses.post;
+     result := True;
+   except
+     result := false;
+   end;
+end;
+
+function TDM.IsEditOrInsertDepense(): Boolean;
+begin
+    Result := (Self.ZtblDepenses.State in [dsEdit,dsInsert]);
+end;
+
+procedure TDM.FirstDepense();
+begin
+   if Not self.IsBrowseSport() then exit;
+  self.ZtblDepenses.First;
+end;
+
+procedure TDM.Lastepense();
+begin
+  if Not self.IsBrowseSport() then exit;
+  self.ZtblDepenses.Last;
+end;
+
+procedure TDM.Nextepense();
+begin
+   if Not self.IsBrowseSport() then exit;
+  self.ZtblDepenses.Next;
+end;
+
+procedure TDM.Priorepense();
+begin
+   if Not self.IsBrowseSport() then exit;
+  self.ZtblDepenses.Prior;
+end;
+
+function TDM.IsBrowseDepense(): Boolean;
+begin
+   Result := (Self.ZtblDepenses.State = dsBrowse);
 end;
 
 

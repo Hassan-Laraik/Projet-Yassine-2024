@@ -4,7 +4,7 @@ object DM: TDM
   Height = 382
   HorizontalOffset = 63
   VerticalOffset = 230
-  Width = 773
+  Width = 1010
   PPI = 81
   object ZNX: TZConnection
     ControlsCodePage = cCP_UTF8
@@ -268,6 +268,7 @@ object DM: TDM
   end
   object DsAdherent: TDataSource
     DataSet = ZtblAdherent
+    Enabled = False
     Left = 208
     Top = 120
   end
@@ -576,5 +577,17 @@ object DM: TDM
     DataSet = ZReadQryPaiement
     Left = 232
     Top = 320
+  end
+  object ZtblDepenses: TZTable
+    Connection = ZNX
+    Active = True
+    TableName = 'depenses'
+    Left = 896
+    Top = 42
+  end
+  object DSDepenses: TDataSource
+    DataSet = ZtblDepenses
+    Left = 896
+    Top = 112
   end
 end

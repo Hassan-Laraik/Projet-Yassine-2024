@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, datetimectrls, zcomponent, fortes324forlaz, virtualdbgrid_package,
   Uadhesion, UPrancipalepas, uDM, uPersoAlertDialog, uCarte_Adherent,
-uRecu_Paiement
+uRecu_Paiement, uDepenses
   { you can add units after this };
 
 {$R *.res}
@@ -27,6 +27,7 @@ begin
   Application.CreateForm(TFrmPersoAlertDialog, FrmPersoAlertDialog);
   Application.CreateForm(TFrmCarteAdherent, FrmCarteAdherent);
   Application.CreateForm(TFrmRecu, FrmRecu);
+  Application.CreateForm(TFrmDepenses, FrmDepenses);
   Application.Run;
 end.
 

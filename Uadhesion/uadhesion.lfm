@@ -1,15 +1,15 @@
 object FrmAdhesion: TFrmAdhesion
-  Left = 0
-  Height = 708
-  Top = 23
-  Width = 1366
+  Left = 160
+  Height = 485
+  Top = 80
+  Width = 960
   BorderStyle = bsDialog
   Caption = 'FrmAdhesion'
   ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
   ChildSizing.EnlargeVertical = crsHomogenousChildResize
   ChildSizing.Layout = cclLeftToRightThenTopToBottom
-  ClientHeight = 708
-  ClientWidth = 1366
+  ClientHeight = 485
+  ClientWidth = 960
   DefaultMonitor = dmDesktop
   DesignTimePPI = 81
   OnCreate = FormCreate
@@ -21,7 +21,7 @@ object FrmAdhesion: TFrmAdhesion
     Left = 0
     Height = 42
     Top = 0
-    Width = 1366
+    Width = 960
     Align = alTop
     Caption = 'Adhesion'
     Color = 9791680
@@ -39,18 +39,18 @@ object FrmAdhesion: TFrmAdhesion
   object Panel2: TPanel
     Left = 0
     Height = 18
-    Top = 690
-    Width = 1366
+    Top = 467
+    Width = 960
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
   end
   object PageControl1: TPageControl
     Left = 5
-    Height = 638
+    Height = 415
     Top = 47
-    Width = 1094
-    ActivePage = TabListeAdhesion
+    Width = 688
+    ActivePage = TabSport
     Align = alClient
     BorderSpacing.Left = 5
     BorderSpacing.Top = 5
@@ -59,23 +59,23 @@ object FrmAdhesion: TFrmAdhesion
     Font.Height = -12
     Font.Name = 'Sans'
     ParentFont = False
-    TabIndex = 0
+    TabIndex = 3
     TabOrder = 2
     object TabListeAdhesion: TTabSheet
       Caption = 'TabListeAdhesion'
-      ClientHeight = 609
-      ClientWidth = 1084
+      ClientHeight = 386
+      ClientWidth = 678
       object PnlEditerDetailAdhesion: TPanel
         Left = 0
         Height = 42
         Top = 82
-        Width = 1084
+        Width = 678
         Align = alTop
         BorderSpacing.Bottom = 5
         BevelOuter = bvNone
         Caption = 'Liste des Adhesion'
         ClientHeight = 42
-        ClientWidth = 1084
+        ClientWidth = 678
         Font.CharSet = ANSI_CHARSET
         Font.Height = -16
         Font.Pitch = fpVariable
@@ -217,7 +217,7 @@ object FrmAdhesion: TFrmAdhesion
           end
         end
         object DBedtMontant: TDBEdit
-          Left = 816
+          Left = 678
           Height = 42
           Top = 0
           Width = 136
@@ -258,7 +258,7 @@ object FrmAdhesion: TFrmAdhesion
           TabOrder = 5
         end
         object DBedtPrix: TDBEdit
-          Left = 688
+          Left = 678
           Height = 42
           Top = 0
           Width = 128
@@ -270,10 +270,10 @@ object FrmAdhesion: TFrmAdhesion
           TabOrder = 6
         end
         object DBedtAssurance: TDBEdit
-          Left = 952
+          Left = 678
           Height = 42
           Top = 0
-          Width = 132
+          Width = 1
           DataField = 'assurance'
           DataSource = DM.DsAdhesion
           Align = alClient
@@ -286,7 +286,7 @@ object FrmAdhesion: TFrmAdhesion
         Left = 5
         Height = 42
         Top = 35
-        Width = 1074
+        Width = 668
         Align = alTop
         BorderSpacing.Left = 5
         BorderSpacing.Top = 5
@@ -294,7 +294,7 @@ object FrmAdhesion: TFrmAdhesion
         BorderSpacing.Bottom = 5
         BevelOuter = bvNone
         ClientHeight = 42
-        ClientWidth = 1074
+        ClientWidth = 668
         TabOrder = 1
         object BtnPrior: TButton
           Left = 40
@@ -317,7 +317,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnFirstClick
         end
         object BtnNext: TButton
-          Left = 994
+          Left = 588
           Height = 42
           Top = 0
           Width = 40
@@ -327,7 +327,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnNextClick
         end
         object BtnLast: TButton
-          Left = 1034
+          Left = 628
           Height = 42
           Top = 0
           Width = 40
@@ -340,7 +340,7 @@ object FrmAdhesion: TFrmAdhesion
           Left = 240
           Height = 42
           Top = 0
-          Width = 594
+          Width = 188
           Align = alClient
           TabOrder = 4
           OnChange = EdtRechercheAdhesionChange
@@ -367,7 +367,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnModifierAdhesionClick
         end
         object BtnValiderAdhesion: TButton
-          Left = 914
+          Left = 508
           Height = 42
           Top = 0
           Width = 80
@@ -377,7 +377,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnValiderAdhesionClick
         end
         object BtnAnnulerValidation: TButton
-          Left = 834
+          Left = 428
           Height = 42
           Top = 0
           Width = 80
@@ -389,9 +389,9 @@ object FrmAdhesion: TFrmAdhesion
       end
       object DBGridAdhesion: TDBGrid
         Left = 5
-        Height = 389
+        Height = 166
         Top = 129
-        Width = 1074
+        Width = 668
         Align = alClient
         AutoFillColumns = True
         BorderSpacing.Left = 5
@@ -402,47 +402,47 @@ object FrmAdhesion: TFrmAdhesion
         Columns = <        
           item
             Title.Caption = 'cin'
-            Width = 119
+            Width = 73
             FieldName = 'cin'
           end        
           item
             Title.Caption = 'idsport'
-            Width = 118
+            Width = 73
             FieldName = 'idsport'
           end        
           item
             Title.Caption = 'debut'
-            Width = 118
+            Width = 73
             FieldName = 'debut'
           end        
           item
             Title.Caption = 'fin'
-            Width = 118
+            Width = 73
             FieldName = 'fin'
           end        
           item
             Title.Caption = 'echeance'
-            Width = 118
+            Width = 73
             FieldName = 'echeance'
           end        
           item
             Title.Caption = 'prix'
-            Width = 118
+            Width = 73
             FieldName = 'prix'
           end        
           item
             Title.Caption = 'montant'
-            Width = 118
+            Width = 73
             FieldName = 'montant'
           end        
           item
             Title.Caption = 'assurance'
-            Width = 118
+            Width = 73
             FieldName = 'assurance'
           end        
           item
             Title.Caption = 'paye'
-            Width = 118
+            Width = 73
             FieldName = 'paye'
           end>
         DataSource = DM.DsAdhesion
@@ -459,12 +459,12 @@ object FrmAdhesion: TFrmAdhesion
         Left = 0
         Height = 30
         Top = 0
-        Width = 1084
+        Width = 678
         Align = alTop
         BevelOuter = bvNone
         Caption = 'Inscription'
         ClientHeight = 30
-        ClientWidth = 1084
+        ClientWidth = 678
         Color = 9791680
         Font.CharSet = ANSI_CHARSET
         Font.Color = clWhite
@@ -491,23 +491,23 @@ object FrmAdhesion: TFrmAdhesion
       object Panel15: TPanel
         Left = 0
         Height = 42
-        Top = 523
-        Width = 1084
+        Top = 300
+        Width = 678
         Align = alBottom
         BevelOuter = bvNone
         ClientHeight = 42
-        ClientWidth = 1084
+        ClientWidth = 678
         ParentBackground = False
         TabOrder = 4
         object Panel1: TPanel
           Left = 0
           Height = 42
           Top = 0
-          Width = 1084
+          Width = 678
           Align = alClient
           BevelOuter = bvNone
           ClientHeight = 42
-          ClientWidth = 1084
+          ClientWidth = 678
           Color = 6629277
           ParentBackground = False
           ParentColor = False
@@ -517,7 +517,7 @@ object FrmAdhesion: TFrmAdhesion
             Left = 0
             Height = 42
             Top = 0
-            Width = 1084
+            Width = 678
             Align = alClient
             Alignment = taCenter
             AutoSize = False
@@ -537,13 +537,13 @@ object FrmAdhesion: TFrmAdhesion
       object Panel24: TPanel
         Left = 0
         Height = 42
-        Top = 567
-        Width = 1084
+        Top = 344
+        Width = 678
         Align = alBottom
         BorderSpacing.Top = 2
         BevelOuter = bvNone
         ClientHeight = 42
-        ClientWidth = 1084
+        ClientWidth = 678
         Color = 6629277
         ParentBackground = False
         ParentColor = False
@@ -617,7 +617,7 @@ object FrmAdhesion: TFrmAdhesion
           ParentFont = False
         end
         object LblSolde_1: TLabel
-          Left = 773
+          Left = 680
           Height = 42
           Top = 0
           Width = 283
@@ -638,13 +638,13 @@ object FrmAdhesion: TFrmAdhesion
     end
     object TabListeAdherents: TTabSheet
       Caption = 'TabListeAdherents'
-      ClientHeight = 609
-      ClientWidth = 1084
+      ClientHeight = 386
+      ClientWidth = 678
       object PnlEditerAdherent: TPanel
         Left = 5
         Height = 42
         Top = 5
-        Width = 1074
+        Width = 668
         Align = alTop
         BorderSpacing.Left = 5
         BorderSpacing.Top = 5
@@ -652,7 +652,7 @@ object FrmAdhesion: TFrmAdhesion
         BorderSpacing.Bottom = 5
         BevelOuter = bvNone
         ClientHeight = 42
-        ClientWidth = 1074
+        ClientWidth = 668
         TabOrder = 0
         object BtnPriorAdherent: TButton
           Left = 44
@@ -675,7 +675,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnFirstAdherentClick
         end
         object BtnNextAdherent: TButton
-          Left = 986
+          Left = 580
           Height = 42
           Top = 0
           Width = 44
@@ -685,7 +685,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnNextAdherentClick
         end
         object BtnLasrAdherent: TButton
-          Left = 1030
+          Left = 624
           Height = 42
           Top = 0
           Width = 44
@@ -718,7 +718,7 @@ object FrmAdhesion: TFrmAdhesion
           Left = 288
           Height = 42
           Top = 0
-          Width = 698
+          Width = 292
           Align = alClient
           TabOrder = 6
           OnKeyPress = EdtRechercheAdherentKeyPress
@@ -726,9 +726,9 @@ object FrmAdhesion: TFrmAdhesion
       end
       object DBGrid2: TDBGrid
         Left = 10
-        Height = 502
+        Height = 279
         Top = 57
-        Width = 1064
+        Width = 658
         Align = alClient
         AutoFillColumns = True
         BorderSpacing.Left = 5
@@ -740,37 +740,37 @@ object FrmAdhesion: TFrmAdhesion
         Columns = <        
           item
             Title.Caption = 'cin'
-            Width = 151
+            Width = 93
             FieldName = 'cin'
           end        
           item
             Title.Caption = 'nom'
-            Width = 151
+            Width = 93
             FieldName = 'nom'
           end        
           item
             Title.Caption = 'prenom'
-            Width = 151
+            Width = 93
             FieldName = 'prenom'
           end        
           item
             Title.Caption = 'adress'
-            Width = 150
+            Width = 92
             FieldName = 'adress'
           end        
           item
             Title.Caption = 'tele'
-            Width = 150
+            Width = 92
             FieldName = 'tele'
           end        
           item
             Title.Caption = 'sexe'
-            Width = 150
+            Width = 92
             FieldName = 'sexe'
           end        
           item
             Title.Caption = 'naissance'
-            Width = 150
+            Width = 92
             FieldName = 'naissance'
           end>
         DataSource = DM.DsAdherent
@@ -783,13 +783,13 @@ object FrmAdhesion: TFrmAdhesion
       object Panel27: TPanel
         Left = 0
         Height = 40
-        Top = 569
-        Width = 1084
+        Top = 346
+        Width = 678
         Align = alBottom
         BevelOuter = bvNone
         Caption = 'Liste des Adherents'
         ClientHeight = 40
-        ClientWidth = 1084
+        ClientWidth = 678
         Color = 9791680
         Font.CharSet = ANSI_CHARSET
         Font.Color = clWhite
@@ -806,7 +806,7 @@ object FrmAdhesion: TFrmAdhesion
           Left = 5
           Height = 30
           Top = 5
-          Width = 1074
+          Width = 668
           Align = alClient
           BorderSpacing.Left = 5
           BorderSpacing.Top = 5
@@ -814,13 +814,13 @@ object FrmAdhesion: TFrmAdhesion
           BorderSpacing.Bottom = 5
           BevelOuter = bvNone
           ClientHeight = 30
-          ClientWidth = 1074
+          ClientWidth = 668
           Color = 9791680
           ParentBackground = False
           ParentColor = False
           TabOrder = 0
           object BtnAppliquer: TButton
-            Left = 940
+            Left = 534
             Height = 26
             Top = 2
             Width = 132
@@ -845,23 +845,23 @@ object FrmAdhesion: TFrmAdhesion
     end
     object TabDetailAdherent: TTabSheet
       Caption = 'TabDetailAdherent'
-      ClientHeight = 609
-      ClientWidth = 1084
+      ClientHeight = 386
+      ClientWidth = 678
       object Panel12: TPanel
         Left = 0
         Height = 42
-        Top = 567
-        Width = 1084
+        Top = 344
+        Width = 678
         Align = alBottom
         BevelOuter = bvNone
         ClientHeight = 42
-        ClientWidth = 1084
+        ClientWidth = 678
         Color = 9791680
         ParentBackground = False
         ParentColor = False
         TabOrder = 0
         object BtnValiderAdherent: TButton
-          Left = 850
+          Left = 444
           Height = 38
           Top = 2
           Width = 120
@@ -875,7 +875,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnValiderAdherentClick
         end
         object BtnAnnulerAdherent: TButton
-          Left = 975
+          Left = 569
           Height = 38
           Top = 2
           Width = 104
@@ -891,25 +891,25 @@ object FrmAdhesion: TFrmAdhesion
       end
       object Panel5: TPanel
         Left = 0
-        Height = 537
+        Height = 314
         Top = 30
-        Width = 1084
+        Width = 678
         Align = alClient
         BevelOuter = bvNone
         Caption = 'Panel5'
-        ClientHeight = 537
-        ClientWidth = 1084
+        ClientHeight = 314
+        ClientWidth = 678
         TabOrder = 1
         object Panel11: TPanel
           Left = 0
           Height = 42
           Top = 173
-          Width = 1084
+          Width = 678
           Align = alTop
           BorderSpacing.Top = 1
           BevelOuter = bvNone
           ClientHeight = 42
-          ClientWidth = 1084
+          ClientWidth = 678
           Color = clWhite
           ParentBackground = False
           ParentColor = False
@@ -945,12 +945,12 @@ object FrmAdhesion: TFrmAdhesion
           Left = 0
           Height = 42
           Top = 216
-          Width = 1084
+          Width = 678
           Align = alTop
           BorderSpacing.Top = 1
           BevelOuter = bvNone
           ClientHeight = 42
-          ClientWidth = 1084
+          ClientWidth = 678
           Color = clWhite
           ParentBackground = False
           ParentColor = False
@@ -986,12 +986,12 @@ object FrmAdhesion: TFrmAdhesion
           Left = 0
           Height = 42
           Top = 259
-          Width = 1084
+          Width = 678
           Align = alTop
           BorderSpacing.Top = 1
           BevelOuter = bvNone
           ClientHeight = 42
-          ClientWidth = 1084
+          ClientWidth = 678
           Color = clWhite
           ParentBackground = False
           ParentColor = False
@@ -1027,12 +1027,12 @@ object FrmAdhesion: TFrmAdhesion
           Left = 0
           Height = 42
           Top = 1
-          Width = 1084
+          Width = 678
           Align = alTop
           BorderSpacing.Top = 1
           BevelOuter = bvNone
           ClientHeight = 42
-          ClientWidth = 1084
+          ClientWidth = 678
           Color = clWhite
           ParentBackground = False
           ParentColor = False
@@ -1069,12 +1069,12 @@ object FrmAdhesion: TFrmAdhesion
           Left = 0
           Height = 42
           Top = 130
-          Width = 1084
+          Width = 678
           Align = alTop
           BorderSpacing.Top = 1
           BevelOuter = bvNone
           ClientHeight = 42
-          ClientWidth = 1084
+          ClientWidth = 678
           Color = clWhite
           ParentBackground = False
           ParentColor = False
@@ -1125,12 +1125,12 @@ object FrmAdhesion: TFrmAdhesion
           Left = 0
           Height = 42
           Top = 87
-          Width = 1084
+          Width = 678
           Align = alTop
           BorderSpacing.Top = 1
           BevelOuter = bvNone
           ClientHeight = 42
-          ClientWidth = 1084
+          ClientWidth = 678
           Color = clWhite
           ParentBackground = False
           ParentColor = False
@@ -1166,12 +1166,12 @@ object FrmAdhesion: TFrmAdhesion
           Left = 0
           Height = 42
           Top = 44
-          Width = 1084
+          Width = 678
           Align = alTop
           BorderSpacing.Top = 1
           BevelOuter = bvNone
           ClientHeight = 42
-          ClientWidth = 1084
+          ClientWidth = 678
           Color = clWhite
           ParentBackground = False
           ParentColor = False
@@ -1208,7 +1208,7 @@ object FrmAdhesion: TFrmAdhesion
         Left = 0
         Height = 30
         Top = 0
-        Width = 1084
+        Width = 678
         Align = alTop
         BevelOuter = bvNone
         Caption = 'Details des Adherents'
@@ -1228,13 +1228,13 @@ object FrmAdhesion: TFrmAdhesion
     end
     object TabSport: TTabSheet
       Caption = 'TabSport'
-      ClientHeight = 609
-      ClientWidth = 1084
+      ClientHeight = 386
+      ClientWidth = 678
       object Panel29: TPanel
         Left = 0
         Height = 30
         Top = 0
-        Width = 1084
+        Width = 678
         Align = alTop
         BevelOuter = bvNone
         Caption = 'Liste des Sports et Activiées'
@@ -1254,8 +1254,8 @@ object FrmAdhesion: TFrmAdhesion
       object Panel17: TPanel
         Left = 0
         Height = 42
-        Top = 567
-        Width = 1084
+        Top = 344
+        Width = 678
         Align = alBottom
         BevelOuter = bvNone
         Color = 9791680
@@ -1267,11 +1267,11 @@ object FrmAdhesion: TFrmAdhesion
         Left = 0
         Height = 42
         Top = 30
-        Width = 1084
+        Width = 678
         Align = alTop
         BevelOuter = bvNone
         ClientHeight = 42
-        ClientWidth = 1084
+        ClientWidth = 678
         TabOrder = 2
         object BtnPriorSport: TButton
           Left = 44
@@ -1294,7 +1294,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnFirstSportClick
         end
         object BtnNextSport: TButton
-          Left = 996
+          Left = 590
           Height = 42
           Top = 0
           Width = 44
@@ -1304,7 +1304,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnNextSportClick
         end
         object BtnLastport: TButton
-          Left = 1040
+          Left = 634
           Height = 42
           Top = 0
           Width = 44
@@ -1317,7 +1317,7 @@ object FrmAdhesion: TFrmAdhesion
           Left = 248
           Height = 42
           Top = 0
-          Width = 588
+          Width = 182
           Align = alClient
           TabOrder = 4
           OnKeyPress = EdtRechercheSportKeyPress
@@ -1343,7 +1343,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnModifierSportClick
         end
         object BtnValiderSport: TButton
-          Left = 836
+          Left = 430
           Height = 42
           Top = 0
           Width = 80
@@ -1353,7 +1353,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnValiderSportClick
         end
         object BtnAnnulerSport: TButton
-          Left = 916
+          Left = 510
           Height = 42
           Top = 0
           Width = 80
@@ -1365,9 +1365,9 @@ object FrmAdhesion: TFrmAdhesion
       end
       object DBGrid1: TDBGrid
         Left = 0
-        Height = 495
+        Height = 272
         Top = 72
-        Width = 1084
+        Width = 678
         Align = alClient
         Color = clWindow
         Columns = <        
@@ -1397,13 +1397,13 @@ object FrmAdhesion: TFrmAdhesion
     end
     object TabPaiement: TTabSheet
       Caption = 'TabPaiement'
-      ClientHeight = 609
-      ClientWidth = 1084
+      ClientHeight = 386
+      ClientWidth = 678
       object DBGrid3: TDBGrid
         Left = 0
-        Height = 495
+        Height = 272
         Top = 72
-        Width = 1084
+        Width = 678
         Align = alClient
         AutoFillColumns = True
         Color = clWindow
@@ -1418,23 +1418,23 @@ object FrmAdhesion: TFrmAdhesion
         Left = 0
         Height = 42
         Top = 30
-        Width = 1084
+        Width = 678
         Align = alTop
         BevelOuter = bvNone
         Caption = 'Panel4'
         ClientHeight = 42
-        ClientWidth = 1084
+        ClientWidth = 678
         TabOrder = 1
         object PnlEditerPaiement: TPanel
           Left = 0
           Height = 42
           Top = 0
-          Width = 785
+          Width = 356
           Align = alClient
           BevelOuter = bvNone
           Caption = 'PnlEditerPaiement'
           ClientHeight = 42
-          ClientWidth = 785
+          ClientWidth = 356
           TabOrder = 0
           object DBEdit1: TDBEdit
             Left = 0
@@ -1475,7 +1475,7 @@ object FrmAdhesion: TFrmAdhesion
             TabOrder = 2
           end
           object DBEdit5: TDBEdit
-            Left = 767
+            Left = 356
             Height = 42
             Top = 0
             Width = 154
@@ -1487,7 +1487,7 @@ object FrmAdhesion: TFrmAdhesion
             TabOrder = 3
           end
           object DBEdit6: TDBEdit
-            Left = 615
+            Left = 356
             Height = 42
             Top = 0
             Width = 152
@@ -1499,7 +1499,7 @@ object FrmAdhesion: TFrmAdhesion
             TabOrder = 4
           end
           object DBEdit4: TDBDateTimePicker
-            Left = 463
+            Left = 356
             Height = 42
             Top = 0
             Width = 152
@@ -1525,7 +1525,7 @@ object FrmAdhesion: TFrmAdhesion
           end
         end
         object BtnNouveauPaiement: TButton
-          Left = 918
+          Left = 436
           Height = 42
           Top = 0
           Width = 80
@@ -1535,7 +1535,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnImprimeraiementClick
         end
         object BtnValiderPaiement: TButton
-          Left = 998
+          Left = 516
           Height = 42
           Top = 0
           Width = 86
@@ -1545,7 +1545,7 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnValiderPaiementClick
         end
         object BtnModifierPaiement1: TButton
-          Left = 838
+          Left = 356
           Height = 42
           Top = 0
           Width = 80
@@ -1555,11 +1555,12 @@ object FrmAdhesion: TFrmAdhesion
           OnClick = BtnModifierPaiement1Click
         end
         object BtnImprimerRecu: TButton
-          Left = 785
+          Left = 602
           Height = 42
           Top = 0
-          Width = 53
+          Width = 66
           Align = alRight
+          BorderSpacing.Right = 10
           Caption = 'Reçu....'
           TabOrder = 4
           OnClick = BtnImprimerRecuClick
@@ -1569,7 +1570,7 @@ object FrmAdhesion: TFrmAdhesion
         Left = 0
         Height = 30
         Top = 0
-        Width = 1084
+        Width = 678
         Align = alTop
         BevelOuter = bvNone
         Caption = 'Liste des Paiements'
@@ -1589,17 +1590,18 @@ object FrmAdhesion: TFrmAdhesion
       object Panel3: TPanel
         Left = 0
         Height = 42
-        Top = 567
-        Width = 1084
+        Top = 344
+        Width = 678
         Align = alBottom
+        BevelOuter = bvNone
         Caption = 'Panel3'
         ClientHeight = 42
-        ClientWidth = 1084
+        ClientWidth = 678
         TabOrder = 3
         object BtnRetourPaiement1: TButton
-          Left = 940
-          Height = 36
-          Top = 3
+          Left = 535
+          Height = 38
+          Top = 2
           Width = 138
           Align = alRight
           BorderSpacing.Top = 2
@@ -1613,8 +1615,8 @@ object FrmAdhesion: TFrmAdhesion
     end
   end
   object PnlSide: TPanel
-    Left = 1104
-    Height = 638
+    Left = 698
+    Height = 415
     Top = 47
     Width = 257
     Align = alRight
@@ -1626,7 +1628,7 @@ object FrmAdhesion: TFrmAdhesion
     BevelInner = bvSpace
     BevelOuter = bvNone
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
-    ClientHeight = 638
+    ClientHeight = 415
     ClientWidth = 257
     Color = 9791680
     DoubleBuffered = False
@@ -1924,7 +1926,7 @@ object FrmAdhesion: TFrmAdhesion
     object BtnChargerPhoto: TButton
       Left = 21
       Height = 38
-      Top = 434
+      Top = 429
       Width = 215
       Align = alTop
       BorderSpacing.Left = 20
@@ -1937,7 +1939,7 @@ object FrmAdhesion: TFrmAdhesion
     object BtnDecharger: TButton
       Left = 21
       Height = 36
-      Top = 522
+      Top = 416
       Width = 215
       Align = alTop
       BorderSpacing.Left = 20
@@ -1950,7 +1952,7 @@ object FrmAdhesion: TFrmAdhesion
     object BtnImprimerCarte: TButton
       Left = 21
       Height = 40
-      Top = 563
+      Top = 416
       Width = 215
       Align = alTop
       BorderSpacing.Left = 20
@@ -1963,7 +1965,7 @@ object FrmAdhesion: TFrmAdhesion
     object BtnPaiement: TButton
       Left = 21
       Height = 40
-      Top = 477
+      Top = 409
       Width = 215
       Align = alTop
       BorderSpacing.Left = 20

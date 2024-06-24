@@ -495,7 +495,7 @@ var
 begin
   if DM.IsBrowseAdhesion()then
   begin
-     DM.RechercherAdherent(dm.GetCinAdhesion());
+       DM.RechercherAdherent(dm.GetCinAdhesion());
   end;
 
   credit :=DM.CreditPaiement_(dm.GetCinAdhesion(),dm.GetIdSportAdhesion());

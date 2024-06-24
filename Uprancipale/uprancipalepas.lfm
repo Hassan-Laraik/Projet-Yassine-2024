@@ -1,11 +1,11 @@
 object Frmprancipale: TFrmprancipale
   Left = 0
-  Height = 708
+  Height = 660
   Top = 23
-  Width = 1366
+  Width = 1280
   Caption = 'Frmprancipale'
-  ClientHeight = 708
-  ClientWidth = 1366
+  ClientHeight = 660
+  ClientWidth = 1280
   DesignTimePPI = 81
   KeyPreview = True
   OnMouseEnter = FormMouseEnter
@@ -14,9 +14,9 @@ object Frmprancipale: TFrmprancipale
   WindowState = wsMaximized
   object Image1: TImage
     Left = 0
-    Height = 708
+    Height = 660
     Top = 0
-    Width = 1366
+    Width = 1280
     Align = alClient
     Picture.Data = {
       0A544A706567496D61676517990600FFD8FFE000104A46494600010101004800
@@ -13534,8 +13534,7 @@ object Frmprancipale: TFrmprancipale
       B7FD31FE522DFF00FCF0A6E275FF00F701A9BF7FFF00B8ADFF00FE7005FF00FD
       978FFBEFFFD9
     }
-    StretchOutEnabled = False
-    StretchInEnabled = False
+    Stretch = True
   end
   object Label1: TLabel
     Left = 48
@@ -13548,6 +13547,36 @@ object Frmprancipale: TFrmprancipale
     Font.Name = 'Sans'
     Font.Style = [fsBold]
     ParentFont = False
+  end
+  object BtnInscription: TLabel
+    Left = 48
+    Height = 17
+    Top = 248
+    Width = 105
+    Caption = 'Inscription....'
+    Font.Color = clWhite
+    Font.Height = -14
+    Font.Name = 'Sans'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    OnClick = BtnInscriptionClick
+    OnMouseEnter = BtnInscriptionMouseEnter
+    OnMouseLeave = BtnInscriptionMouseLeave
+  end
+  object BtnDepenses: TLabel
+    Left = 48
+    Height = 17
+    Top = 296
+    Width = 90
+    Caption = 'Depenses...'
+    Font.Color = clWhite
+    Font.Height = -14
+    Font.Name = 'Sans'
+    Font.Style = [fsBold, fsUnderline]
+    ParentFont = False
+    OnClick = BtnDepensesClick
+    OnMouseEnter = BtnInscriptionMouseEnter
+    OnMouseLeave = BtnInscriptionMouseLeave
   end
   object BtnSports: TLabel
     Left = 48
@@ -13581,20 +13610,5 @@ object Frmprancipale: TFrmprancipale
     OnClick = BtnAdherentsClick
     OnMouseEnter = BtnAdherentsMouseEnter
     OnMouseLeave = BtnAdherentsMouseLeave
-  end
-  object BtnInscription: TLabel
-    Left = 48
-    Height = 17
-    Top = 248
-    Width = 105
-    Caption = 'Inscription....'
-    Font.Color = clWhite
-    Font.Height = -14
-    Font.Name = 'Sans'
-    Font.Style = [fsBold, fsUnderline]
-    ParentFont = False
-    OnClick = BtnInscriptionClick
-    OnMouseEnter = BtnInscriptionMouseEnter
-    OnMouseLeave = BtnInscriptionMouseLeave
   end
 end

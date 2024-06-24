@@ -106,6 +106,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uRecu_Paiement"/>
       </Unit>
+      <Unit>
+        <Filename Value="Depenses\udepenses.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="FrmDepenses"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uDepenses"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -116,7 +124,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="Uadhesion;Uprancipale;DM;utilitaires;Reports\Carte_Adherent;Reports\Recu_paiement"/>
+      <OtherUnitFiles Value="Uadhesion;Uprancipale;DM;utilitaires;Reports\Carte_Adherent;Reports\Recu_paiement;Depenses"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

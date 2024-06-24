@@ -18,6 +18,7 @@ type
     BtnAdherents: TLabel;
     BtnInscription: TLabel;
     Image1: TImage;
+    BtnDepenses: TLabel;
     procedure BtnSportsClick(Sender: TObject);
     procedure BtnInscriptionClick(Sender: TObject);
     procedure BtnSportsMouseEnter(Sender: TObject);
@@ -29,6 +30,7 @@ type
     procedure BtnAdherentsClick(Sender: TObject);
     procedure FormPaint(Sender: TObject);
     procedure FormMouseEnter(Sender: TObject);
+    procedure BtnDepensesClick(Sender: TObject);
   private
 
   public
@@ -39,7 +41,7 @@ var
   Frmprancipale: TFrmprancipale;
 
 implementation
-uses Uadhesion;
+uses Uadhesion,uDepenses;
 
 {$R *.lfm}
 
@@ -128,6 +130,11 @@ end;
 procedure TFrmprancipale.FormMouseEnter(Sender: TObject);
 begin
 
+end;
+
+procedure TFrmprancipale.BtnDepensesClick(Sender: TObject);
+begin
+  FrmDepenses.ShowModal;
 end;
 
 end.
